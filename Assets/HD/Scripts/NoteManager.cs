@@ -40,6 +40,10 @@ public class NoteManager : MonoBehaviour
         
     }
 
+    private void Update() {
+        
+    }
+
     void CreateBlueNote(int a, int b){
         GameObject noteNPC = ObjectPool.Instance.GetBluePooledObject();
         if(noteNPC){
