@@ -22,9 +22,21 @@ public class Note : MonoBehaviour
         */
     }
 
-    void ChangeColor(){
+    public void ChangeColor(){
          float emissiveIntensity = 10;
          Color emissiveColor = Color.green;
+         this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity);
+    }
+
+    public void BlueResetColor(){
+        float emissiveIntensity = 10;
+         Color emissiveColor = Color.blue;
+         this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity);
+    }
+
+    public void RedResetColor(){
+        float emissiveIntensity = 10;
+         Color emissiveColor = Color.red;
          this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity);
     }
 }

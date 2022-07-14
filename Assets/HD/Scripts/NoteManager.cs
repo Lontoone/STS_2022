@@ -8,11 +8,15 @@ public class NoteManager : MonoBehaviour
     public GameObject container;
 
     //將子彈裝入子彈庫
-    public List<GameObject> NoteLibrary;
+    public List<GameObject> BlueNoteLibrary;
+    public List<GameObject> RedNoteLibrary;
 
     float length;
     float unitLength;
     int lengthNumber = 0;
+
+    //哪種子彈showTime
+    bool blueShowTime = true;
 
     private void Awake() {
 
@@ -23,7 +27,8 @@ public class NoteManager : MonoBehaviour
         float a = length / unitLength;
         lengthNumber = (int) a ;
 
-        NoteLibrary = new List<GameObject>();        
+        BlueNoteLibrary = new List<GameObject>(); 
+        RedNoteLibrary = new List<GameObject>();       
     }
 
     // Start is called before the first frame update
@@ -41,7 +46,7 @@ public class NoteManager : MonoBehaviour
     }
 
     private void Update() {
-        
+        LightManage();
     }
 
     void CreateBlueNote(int a, int b){
@@ -50,7 +55,7 @@ public class NoteManager : MonoBehaviour
             noteNPC.transform.parent = container.transform;
             noteNPC.transform.position = container.transform.position + new Vector3( -length / 2 + a * unitLength + unitLength / 2 , length / 2, length / 2 - b * unitLength - + unitLength / 2);
             noteNPC.SetActive(true); 
-            NoteLibrary.Add(noteNPC);
+            BlueNoteLibrary.Add(noteNPC);
         }else{
             Debug.Log("Produce Error!");
         }
@@ -62,9 +67,42 @@ public class NoteManager : MonoBehaviour
             noteNPC.transform.parent = container.transform;
             noteNPC.transform.position = container.transform.position + new Vector3( -length / 2 + a * unitLength + unitLength / 2 , -length / 2, length / 2 - b * unitLength - + unitLength / 2);
             noteNPC.SetActive(true); 
-            NoteLibrary.Add(noteNPC);
+            RedNoteLibrary.Add(noteNPC);
         }else{
             Debug.Log("Produce Error!");
+        }
+    }
+
+    void LightManage(){
+        //isShowTime in PlaneManager
+        if(PlaneManager.Instance.isShowTime && PlaneManager.Instance.isBlueTurn){
+            for (int i = 0; i < BlueNoteLibrary.Count; i++)
+            {
+                if(BlueNoteLibrary[i] != null){
+                    BlueNoteLibrary[i].GetComponent<Note>().ChangeColor();
+                }                
+            }
+        }else if(PlaneManager.Instance.isShowTime && !PlaneManager.Instance.isBlueTurn){
+            for (int i = 0; i < RedNoteLibrary.Count; i++)
+            {
+                if(RedNoteLibrary[i] != null){
+                    RedNoteLibrary[i].GetComponent<Note>().ChangeColor();
+                }                
+            }
+        }else{
+            for (int i = 0; i < BlueNoteLibrary.Count; i++)
+            {
+                if(BlueNoteLibrary[i] != null){
+                    BlueNoteLibrary[i].GetComponent<Note>().BlueResetColor();
+                }
+            }
+
+            for (int i = 0; i < RedNoteLibrary.Count; i++)
+            {
+                if(RedNoteLibrary[i] != null){
+                    RedNoteLibrary[i].GetComponent<Note>().RedResetColor();
+                }
+            }            
         }
     }
 }
