@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 180), 1);
+                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 0), 1);
                 c.transform.DOLocalMoveY(1.75f, 1);
             }
         }
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         #endregion
 
         #region Player Camera Up/Down
-        YLock += Input.GetAxisRaw("Mouse Y") * MouseSens;
+        YLock += Input.GetAxisRaw("Mouse Y") * MouseSens * (isUpSideDown == false ? -1 : 1);
         YLock = Mathf.Clamp(YLock, -89, 89);
         c.transform.localEulerAngles = new Vector3(YLock, c.transform.localEulerAngles.y, c.transform.localEulerAngles.z);
         #endregion
