@@ -21,12 +21,12 @@ public class PlaneManager : MonoBehaviour
         org_z = transform.eulerAngles.z;
     }
 
-    void FixedUpdate () {
+    void Update () {
         if (Input.GetKeyDown("space"))
-            iskeydown = true;
- 
- 
-        if(iskeydown)
+            iskeydown = true;      
+    }
+    private void FixedUpdate() {
+          if(iskeydown)
         {
             if (!isrotate)
             {
