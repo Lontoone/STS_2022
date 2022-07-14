@@ -16,10 +16,11 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     private bool isReached = true;
     public float reachedCheckRadious = 1f;
+    private float initFloorY;
     //public event Action<Vector3> eMove;
-    private void Start()
+    public virtual void Start()
     {
-
+        initFloorY = transform.position.y;
         navAgent.speed = moveSpeed;
     }
     private void Update()
@@ -29,7 +30,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        //是否可見玩家
         bool isInSight = SightCheck();
         isReached = Vector3.Distance(moveTarget.position, navAgent.transform.position) < reachedCheckRadious;
 
@@ -42,6 +43,14 @@ public abstract class Enemy : MonoBehaviour
             NotSeeTarget();
         }
         else { Move(); }
+
+        //檢查
+        if (Mathf.Abs(navAgent.transform.position.y - moveTarget.transform.position.y ) > 3) {
+            Vector3 _sameSideY = moveTarget.transform.position;
+            _sameSideY.y = navAgent.transform.position.y;
+            moveTarget.transform.position = _sameSideY; 
+        }
+
     }
 
 
@@ -82,9 +91,9 @@ public abstract class Enemy : MonoBehaviour
             //Random set move Target
             Vector3 _newTargetPos = new Vector3(
                 Random.Range(moveableBounds.min.x, moveableBounds.max.x),
-                transform.position.y,
+                initFloorY,
                 Random.Range(moveableBounds.min.z, moveableBounds.max.z)
-                );
+                ) ;
             SetMoveTarget(_newTargetPos);
         }
     }
