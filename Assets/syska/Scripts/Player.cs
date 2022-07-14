@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     public float HoverHeight = 0.2f;
     private RaycastHit hhRayHit;
 
+    [Header("Player HeadBob Animation")]
+    public Animator HeadAnimator;
+
     [Header("Player States")]
     public static int Lifes = 3;
 
@@ -67,6 +70,15 @@ public class Player : MonoBehaviour
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
         finalvelocity *= movespeedmultipy;
         #endregion
+
+        if (finalvelocity.x != 0 && finalvelocity.z != 0)
+        {
+            HeadAnimator.SetBool("isMoving", true);
+        }
+        else
+        {
+            HeadAnimator.SetBool("isMoving", false);
+        }
 
         if (Input.GetKeyDown(KeyCode.K)) Damage();
     }
