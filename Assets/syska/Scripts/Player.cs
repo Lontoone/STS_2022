@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     public static Player instance;
     private Rigidbody r;
     private Camera c;
+
+    public Transform USD_Point;
 
     public float MouseSens = 3.1f;
     private float YLock;
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
     public Animator HeadAnimator;
 
     [Header("Player States")]
+    public static bool isUpSideDown = false;
     public static int Lifes = 3;
 
     private void Awake()
@@ -41,6 +45,21 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isUpSideDown = !isUpSideDown;
+            if (isUpSideDown)
+            {
+                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 180), 1);
+                c.transform.DOLocalMoveY(0.25f, 1);
+            }
+            else
+            {
+                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 180), 1);
+                c.transform.DOLocalMoveY(1.75f, 1);
+            }
+        }
+
         #region Cursor Lock/Release
         if (Input.GetMouseButtonDown(0))
         {
@@ -59,11 +78,11 @@ public class Player : MonoBehaviour
         #region Player Camera Up/Down
         YLock += Input.GetAxisRaw("Mouse Y") * MouseSens;
         YLock = Mathf.Clamp(YLock, -89, 89);
-        c.transform.localEulerAngles = Vector3.left * YLock;
+        c.transform.localEulerAngles = new Vector3(YLock, c.transform.localEulerAngles.y, c.transform.localEulerAngles.z);
         #endregion
 
         #region Player Rotate and Move
-        transform.eulerAngles += Input.GetAxisRaw("Mouse X") * MouseSens * Vector3.up;
+        transform.eulerAngles += Input.GetAxisRaw("Mouse X") * MouseSens * (isUpSideDown == false ? Vector3.up : Vector3.down);
 
         finalvelocity = Vector3.zero;
         finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
@@ -85,16 +104,33 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics.Raycast(transform.position+Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f))
+        if (isUpSideDown)
         {
-            if (hhRayHit.distance < HoverHeight + 1)
+            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f))
             {
-                transform.position += Vector3.up * 0.05f;
+                if (hhRayHit.distance < HoverHeight + 1)
+                {
+                    transform.position -= Vector3.up * 0.05f;
+                }
+            }
+            else
+            {
+                finalvelocity -= Vector3.down * 9.8f;
             }
         }
         else
         {
-            finalvelocity += Vector3.down * 9.8f;
+            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f))
+            {
+                if (hhRayHit.distance < HoverHeight + 1)
+                {
+                    transform.position += Vector3.up * 0.05f;
+                }
+            }
+            else
+            {
+                finalvelocity += Vector3.down * 9.8f;
+            }
         }
         r.velocity = finalvelocity;
     }
