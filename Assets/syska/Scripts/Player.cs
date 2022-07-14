@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         #endregion
 
         #region Player Camera Up/Down
-        YLock += Input.GetAxisRaw("Mouse Y") * MouseSens;
+        YLock += Input.GetAxisRaw("Mouse Y") * MouseSens * (isUpSideDown == false ? -1 : 1);
         YLock = Mathf.Clamp(YLock, -89, 89);
         c.transform.localEulerAngles = new Vector3(YLock, c.transform.localEulerAngles.y, c.transform.localEulerAngles.z);
         #endregion
