@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 180), 1);
+                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 0), 1);
                 c.transform.DOLocalMoveY(1.75f, 1);
             }
         }
