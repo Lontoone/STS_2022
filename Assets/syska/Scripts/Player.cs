@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public AudioClip impact;
     AudioSource audiosource;
 
-
     public static Player instance;
     private Rigidbody r;
     private Camera c;
@@ -21,6 +20,7 @@ public class Player : MonoBehaviour
     public float MouseSens = 3.1f;
     private float YLock;
     private bool mLock;
+    public Transform SpawnPoint;
 
     [Header("Player Camera")]
     public float Player_Walk_FOV = 60;
@@ -65,7 +65,6 @@ public class Player : MonoBehaviour
         mLock = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
     }
 
     private void Start()
@@ -189,6 +188,8 @@ public class Player : MonoBehaviour
 
     public static void Kill()
     {
+        instance.transform.position = instance.SpawnPoint.position;
+        //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();
     }
