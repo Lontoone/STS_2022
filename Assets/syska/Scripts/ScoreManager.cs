@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     private float Code_Percent = 0f;
     private int Note_Count = 0;
 
+    public static event System.Action FEVER_TIME;
+
     private void Start() {
         audiosource = GetComponent<AudioSource>();
     }
@@ -35,6 +37,7 @@ public class ScoreManager : MonoBehaviour
         PlayerHUD.UpdateLifes();
         PlayerHUD.SetNoteCount(Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
+        if (Note_Count >= allScore) FEVER_TIME?.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)

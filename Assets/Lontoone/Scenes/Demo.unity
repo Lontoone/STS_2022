@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 0.1
     smallestHole: 0.01
     backfaceThreshold: 100
-  m_SceneGUID: bfa7ddcd07795bd43b386c4d88c0f1f1
-  m_OcclusionCullingData: {fileID: 36300000, guid: 6117420c400ae7f469da98a8cfaa2b1b, type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -19090,6 +19090,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13434106, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13434106, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_RequiresDepthTextureOption
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13434106, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_RequiresOpaqueTextureOption
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13434107, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_BackGroundColor.a
       value: 1
@@ -19115,8 +19127,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 963194229, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_RequiresDepthTextureOption
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_RequiresOpaqueTextureOption
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: impact
