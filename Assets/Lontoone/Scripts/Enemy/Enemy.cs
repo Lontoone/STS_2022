@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public float runSpeed;
     //怪物動作:(1)Idle (2)移動　(3)看到玩家後衝刺 (4)Jump Scare
     //public ActionController.mAction idle ,walk, run ;
-    private ActionController actionController; 
+    private ActionController actionController;
 
     public Transform moveTarget;
     public ColliderDetector sightCollider;
@@ -23,7 +23,10 @@ public abstract class Enemy : MonoBehaviour
     Coroutine idleTimeColor;
     private string stateString = "idle";
     public LayerMask sightBlock;
-    private bool isInSight;
+    //private bool isInSight;
+    public float loseSightDistance = 10;
+    [SerializeField]
+    private Transform chasingTarget;
     public virtual void Start()
     {
         initFloorY = transform.position.y;
@@ -32,23 +35,25 @@ public abstract class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        isInSight = SightCheck();
+        bool isInSight = SightCheck();
         isReached = Vector3.Distance(moveTarget.position, navAgent.transform.position) < reachedCheckRadious;
 
         if (isInSight)
         {
             //actionController.AddAction(run);
-            
+
             Run();
         }
-        else if (idleTimeColor!=null) { 
+        else if (idleTimeColor != null)
+        {
             //idleing...
         }
         else if (isReached && !isInSight)
         {
             NotSeeTarget();
         }
-        else {
+        else
+        {
             //actionController.AddAction(walk);
             Move(); //隨處走
         }
@@ -70,42 +75,51 @@ public abstract class Enemy : MonoBehaviour
 
     public bool SightCheck()
     {
-        /*
+
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
+            GameObject _chasingObj = sightCollider.collidersInRange[i];
             //TODO: Ray 穿牆設定
-            Vector3 dir = (sightCollider.collidersInRange[i].transform.position - transform.position).normalized;
+            Vector3 dir = (_chasingObj.transform.position+ new Vector3(0, 0.5f, 0) - transform.position).normalized ;
             RaycastHit hit;
             //看到敵人
-            //Debug.Log("See "+ sightCollider.collidersInRange[i].gameObject.name);
+            Debug.Log("See "+ _chasingObj.gameObject.name);
 
             //判斷距離 (是否甩開)
-            
+            if (chasingTarget!=null && Vector3.Distance(_chasingObj.transform.position , transform.position) < loseSightDistance) {
+                SetMoveTarget(_chasingObj.transform.position);
+                return true;
+            }
 
             //視覺
-            Ray _ray=new Ray();
-            _ray.direction = dir;
-            _ray.origin = transform.position;
-            if (Physics.Raycast(_ray ,out hit, 100, sightBlock)) {
+            Debug.Log("Do Ray");
+            Ray _ray = new Ray(transform.position , dir);
+            Debug.DrawRay(_ray.origin,dir ,Color.red );
+
+            if (Physics.Raycast(_ray, out hit, 10000, sightBlock))
+            {
                 Debug.Log("See " + hit.collider.gameObject.name);
-                if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject) {
-                    SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
+                if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
+                {
+                    SetMoveTarget(_chasingObj.transform.position);
+                    chasingTarget = _chasingObj.transform;
                     return true;
                 }
             }
 
-            
-        }*/
-        
+
+        }
+
         //TEMP:
         //看到人=>追逐
-        
+        /*
         if (sightCollider.collidersInRange.Count > 0)
         {
             SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
             return true;
-        }
-        
+        }*/
+
+        chasingTarget = null;
         return false;
     }
 
@@ -126,7 +140,7 @@ public abstract class Enemy : MonoBehaviour
                 Random.Range(moveableBounds.min.x, moveableBounds.max.x),
                 initFloorY,
                 Random.Range(moveableBounds.min.z, moveableBounds.max.z)
-                ) ;
+                );
             SetMoveTarget(_newTargetPos);
         }
     }
@@ -161,7 +175,8 @@ public abstract class Enemy : MonoBehaviour
         Gizmos.DrawWireCube(moveableBounds.center, moveableBounds.size);
     }
 
-    IEnumerator WaitForIdle() {
+    IEnumerator WaitForIdle()
+    {
         yield return new WaitForSeconds(5);
         idleTimeColor = null;
     }
