@@ -53,7 +53,7 @@ public class NoteManager : MonoBehaviour
         GameObject noteNPC = ObjectPool.Instance.GetBluePooledObject();
         if(noteNPC){
             noteNPC.transform.parent = container.transform;
-            noteNPC.transform.position = container.transform.position + new Vector3( -length / 2 + a * unitLength + unitLength / 2 , (-length / 2) + 2, length / 2 - b * unitLength - + unitLength / 2);
+            noteNPC.transform.position = container.transform.position + new Vector3( -length / 2 + a * unitLength + unitLength / 2 , (-length / 2) + 2.3f, length / 2 - b * unitLength - + unitLength / 2);
             noteNPC.SetActive(true); 
             BlueNoteLibrary.Add(noteNPC);
         }else{

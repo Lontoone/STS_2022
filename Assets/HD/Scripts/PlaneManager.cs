@@ -37,42 +37,15 @@ public class PlaneManager : MonoBehaviour
     }
 
     void Update () {        
-        CountTime();
-        /*
-        if (Input.GetKeyDown("space"))
-            iskeydown = true;    
-            */  
-    }
-    private void FixedUpdate() {
-          if(iskeydown)
+        CountTime();  
+        if (Input.GetKeyDown("escape"))
         {
-            if (!isrotate)
-            {
-                if ((transform.eulerAngles.z - org_z) < rotateAngle)
-                {
-                    //transform.Rotate(0, Time.deltaTime * 90 * 2, 0, Space.World);
-                    transform.Rotate(0 , 0, Time.deltaTime * rotateAngle / rotateTime, Space.World);
-                }
-                else
-                {
-                    isrotate = true;
-                    iskeydown = false; //停止
-                }
-            }
-            else
-            {
-                if(transform.eulerAngles.z <=360 && (transform.eulerAngles.z - org_z) >=0.001)
-                {
-                    transform.Rotate(0, 0, -Time.deltaTime * rotateAngle / rotateTime, Space.World);
-                    //回到原來位置
-                }
-                else
-                {
-                    isrotate = false;
-                    iskeydown = false; //停止
-                }
-            }
-        }
+            QuitGame();
+        }     
+    }    
+
+    void QuitGame(){
+        Application.Quit();
     }
 
     void CountTime(){
@@ -89,4 +62,5 @@ public class PlaneManager : MonoBehaviour
             timer2 = 0;
         }
     }
+    
 }
