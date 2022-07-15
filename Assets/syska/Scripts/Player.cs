@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
         finalvelocity = Vector3.zero;
         finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
-        finalvelocity *= isRunning ? Player_Run_Speed : Player_Walk_Speed;
+        finalvelocity = Vector3.Normalize(finalvelocity) * (isRunning ? Player_Run_Speed : Player_Walk_Speed);
         #endregion
 
         #region Player HeadBob Animation
