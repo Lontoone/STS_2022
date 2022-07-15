@@ -5,17 +5,16 @@ using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
+    public bool constantChasing = false;
     public float moveSpeed;
     public float runSpeed;
     //怪物動作:(1)Idle (2)移動　(3)看到玩家後衝刺 (4)Jump Scare
     //public ActionController.mAction idle ,walk, run ;
-    private ActionController actionController;
-
     public Transform moveTarget;
     public ColliderDetector sightCollider;
     public ColliderDetector fightCollider;
     public NavMeshAgent navAgent;
-    public Bounds moveableBounds;
+    public Collider moveableBounds;
     [SerializeField]
     private bool isReached = true;
     public float reachedCheckRadious = 1f;
@@ -31,11 +30,11 @@ public abstract class Enemy : MonoBehaviour
     {
         initFloorY = transform.position.y;
         navAgent.speed = moveSpeed;
-        actionController = gameObject.GetComponent<ActionController>();
     }
     private void Update()
     {
         bool isInSight = SightCheck();
+        
         isReached = Vector3.Distance(moveTarget.position, navAgent.transform.position) < reachedCheckRadious;
 
         if (isInSight)
@@ -59,21 +58,8 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
 
-        //檢查
-        /*
-        if (Mathf.Abs(navAgent.transform.position.y - moveTarget.transform.position.y ) > 3) {
-            Vector3 _sameSideY = moveTarget.transform.position;
-            _sameSideY.y = navAgent.transform.position.y;
-            moveTarget.transform.position = _sameSideY; 
-        }*/
-
-    }
-
-
-    public bool SightCheck()
+    public virtual bool SightCheck()
     {
         //判斷距離 (是否甩開)
         if (chasingTarget != null && Vector3.Distance(chasingTarget.transform.position, transform.position) < loseSightDistance)
@@ -92,7 +78,7 @@ public abstract class Enemy : MonoBehaviour
             Ray _ray = new Ray(transform.position , dir);
             Debug.DrawRay(_ray.origin,dir ,Color.red );
 
-            if (Physics.Raycast(_ray, out hit, 1000, sightBlock))
+            if ( Physics.Raycast(_ray, out hit, 1000, sightBlock) || constantChasing)
             {
                 Debug.Log("See " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
@@ -131,9 +117,9 @@ public abstract class Enemy : MonoBehaviour
         {
             //Random set move Target
             Vector3 _newTargetPos = new Vector3(
-                Random.Range(moveableBounds.min.x, moveableBounds.max.x),
+                Random.Range(moveableBounds.bounds.min.x, moveableBounds.bounds.max.x),
                 initFloorY,
-                Random.Range(moveableBounds.min.z, moveableBounds.max.z)
+                Random.Range(moveableBounds.bounds.min.z, moveableBounds.bounds.max.z)
                 );
             SetMoveTarget(_newTargetPos);
         }
@@ -162,12 +148,12 @@ public abstract class Enemy : MonoBehaviour
         stateString = "Run";
         //animator....
     }
-
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(moveableBounds.center, moveableBounds.size);
-    }
+    }*/
 
     IEnumerator WaitForIdle()
     {

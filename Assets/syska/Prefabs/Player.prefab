@@ -706,7 +706,11 @@ MonoBehaviour:
   Player_Run_Key: 304
   Player_Walk_Speed: 7
   Player_Run_Speed: 13.5
-  HoverHeight: 0.2
+  Player_Gravity: 9.81
+  Player_RayCast_HoverHeight: 0.2
+  Player_RayCast_Distance: 1.1
+  Player_RayCast_Fallin_Check: 1
+  Player_RayCast_UpLift: 0.05
   RayIgnore:
     serializedVersion: 2
     m_Bits: 2147483647
