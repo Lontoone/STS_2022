@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6793237300915251888}
   - component: {fileID: 870654892184678647}
   - component: {fileID: -7969320106874414871}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blue
   m_TagString: BlueNote
   m_Icon: {fileID: 0}

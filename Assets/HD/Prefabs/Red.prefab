@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 525675609886510530}
   - component: {fileID: 8360842075836223891}
   - component: {fileID: 7319987083985189254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red
   m_TagString: RedNote
   m_Icon: {fileID: 0}
