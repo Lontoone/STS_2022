@@ -822,8 +822,8 @@ MonoBehaviour:
   Player_Camera_FOV_ChangeTime: 9.81
   Player_Jump_Key: 113
   Player_Run_Key: 304
-  Player_Walk_Speed: 7
-  Player_Run_Speed: 13.5
+  Player_Walk_Speed: 3
+  Player_Run_Speed: 5
   Player_Gravity: 9.81
   Player_RayCast_HoverHeight: 0.1
   Player_RayCast_Distance: 0.2

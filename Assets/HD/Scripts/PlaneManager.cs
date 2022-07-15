@@ -38,8 +38,10 @@ public class PlaneManager : MonoBehaviour
 
     void Update () {        
         CountTime();
+        /*
         if (Input.GetKeyDown("space"))
-            iskeydown = true;      
+            iskeydown = true;    
+            */  
     }
     private void FixedUpdate() {
           if(iskeydown)
