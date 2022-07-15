@@ -23,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
     Coroutine idleTimeColor;
     private string stateString = "idle";
     public LayerMask sightBlock;
+    private bool isInSight;
     public virtual void Start()
     {
         initFloorY = transform.position.y;
@@ -31,7 +32,7 @@ public abstract class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        bool isInSight = SightCheck();
+        isInSight = SightCheck();
         isReached = Vector3.Distance(moveTarget.position, navAgent.transform.position) < reachedCheckRadious;
 
         if (isInSight)
@@ -77,6 +78,11 @@ public abstract class Enemy : MonoBehaviour
             RaycastHit hit;
             //看到敵人
             //Debug.Log("See "+ sightCollider.collidersInRange[i].gameObject.name);
+
+            //判斷距離 (是否甩開)
+            
+
+            //視覺
             Ray _ray=new Ray();
             _ray.direction = dir;
             _ray.origin = transform.position;
@@ -84,14 +90,16 @@ public abstract class Enemy : MonoBehaviour
                 Debug.Log("See " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject) {
                     SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
-                    return false;
+                    return true;
                 }
             }
 
+            
         }*/
         
         //TEMP:
         //看到人=>追逐
+        
         if (sightCollider.collidersInRange.Count > 0)
         {
             SetMoveTarget(sightCollider.collidersInRange[0].transform.position);

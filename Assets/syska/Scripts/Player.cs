@@ -77,7 +77,8 @@ public class Player : MonoBehaviour
         {
             c.DOFieldOfView(Player_Run_FOV, Player_Camera_FOV_ChangeTime);
             dotweenlerprun = true;
-        }else if (!isRunning && dotweenlerprun)
+        }
+        else if (!isRunning && dotweenlerprun)
         {
             c.DOFieldOfView(Player_Walk_FOV, Player_Camera_FOV_ChangeTime);
             dotweenlerprun = false;
@@ -158,6 +159,7 @@ public class Player : MonoBehaviour
                 finalvelocity += Vector3.down * 9.8f;
             }
         }
+        if (hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
         r.velocity = finalvelocity;
     }
 
