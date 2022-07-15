@@ -1027,18 +1027,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
-      propertyPath: Player_Run_FOV
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
-      propertyPath: runspeedmultipy
-      value: 13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
-      propertyPath: RayIgnore.m_Bits
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 3208009581476350986, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_Name
       value: Player
