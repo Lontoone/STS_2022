@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
         if (other.gameObject.tag == "BlueNote" || other.gameObject.tag == "RedNote")
         {
             Noted(other.gameObject.tag == "BlueNote");
+            Debug.Log("吃到音符");
             Destroy(other.gameObject);
         }
     }
