@@ -16,18 +16,30 @@ public class Player : MonoBehaviour
     private float YLock;
     private bool mLock;
 
+    [Header("Player Camera")]
+    public float Player_Walk_FOV = 60;
+    public float Player_Run_FOV = 90;
+    public float Player_Camera_FOV_ChangeTime = 2f;
+    private bool dotweenlerprun = false;
+
     [Header("Player Movement")]
-    public float movespeedmultipy = 1;
+    public KeyCode Player_Jump_Key = KeyCode.Q;
+    public KeyCode Player_Run_Key = KeyCode.LeftShift;
+    public float Player_Walk_Speed = 7;
+    public float Player_Run_Speed = 10;
     private Vector3 finalvelocity;
 
     public float HoverHeight = 0.2f;
     private RaycastHit hhRayHit;
+    [Tooltip("Select What Ray Will Hit, Deselect What Ray Will Ignore")]
+    public LayerMask RayIgnore;
 
     [Header("Player HeadBob Animation")]
     public Animator HeadAnimator;
 
     [Header("Player States")]
     public static bool isUpSideDown = false;
+    public static bool isRunning = false;
     public static int Lifes = 3;
 
     private void Awake()
@@ -45,7 +57,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(Player_Jump_Key))
         {
             isUpSideDown = !isUpSideDown;
             if (isUpSideDown)
@@ -58,6 +70,18 @@ public class Player : MonoBehaviour
                 c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 0), 1);
                 c.transform.DOLocalMoveY(1.75f, 1);
             }
+        }
+        isRunning = Input.GetKey(Player_Run_Key);
+
+        if (isRunning && !dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Run_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = true;
+        }
+        else if (!isRunning && dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Walk_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = false;
         }
 
         #region Cursor Lock/Release
@@ -87,9 +111,11 @@ public class Player : MonoBehaviour
         finalvelocity = Vector3.zero;
         finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
-        finalvelocity *= movespeedmultipy;
+        finalvelocity = Vector3.Normalize(finalvelocity) * (isRunning ? Player_Run_Speed : Player_Walk_Speed);
         #endregion
 
+        #region Player HeadBob Animation
+        HeadAnimator.speed = isRunning ? 1.5f : 1f;
         if (finalvelocity.x != 0 && finalvelocity.z != 0)
         {
             HeadAnimator.SetBool("isMoving", true);
@@ -98,6 +124,7 @@ public class Player : MonoBehaviour
         {
             HeadAnimator.SetBool("isMoving", false);
         }
+        #endregion
 
         if (Input.GetKeyDown(KeyCode.K)) Damage();
     }
@@ -106,7 +133,7 @@ public class Player : MonoBehaviour
     {
         if (isUpSideDown)
         {
-            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f))
+            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
             {
                 if (hhRayHit.distance < HoverHeight + 1)
                 {
@@ -120,7 +147,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f))
+            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
             {
                 if (hhRayHit.distance < HoverHeight + 1)
                 {
@@ -132,6 +159,7 @@ public class Player : MonoBehaviour
                 finalvelocity += Vector3.down * 9.8f;
             }
         }
+        if (hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
         r.velocity = finalvelocity;
     }
 
