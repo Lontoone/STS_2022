@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
 {
     public bool constantChasing = false;
     public AudioSource audioSource;
-    public AudioClip runClip;
+    public AudioClip runClip,discoverClip;
     public float moveSpeed;
     public float runSpeed;
     //怪物動作:(1)Idle (2)移動　(3)看到玩家後衝刺 (4)Jump Scare
@@ -110,6 +110,10 @@ public abstract class Enemy : MonoBehaviour
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
                 {
                     SetMoveTarget(_chasingObj.transform.position);
+                    //發現音效
+                    if (_chasingObj!=chasingTarget && discoverClip!=null) {
+                        audioSource.PlayOneShot(discoverClip);
+                    }
                     chasingTarget = _chasingObj.transform;
                     return true;
                 }
