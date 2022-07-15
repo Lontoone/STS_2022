@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -324,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469965364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -689,8 +689,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3208009581345257768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.5, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3208009581476350990}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 808939218}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +784,7 @@ Transform:
   - {fileID: 13434105}
   - {fileID: 1469965365}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3208009581476350984
 Rigidbody:
@@ -825,13 +825,13 @@ MonoBehaviour:
   Player_Walk_Speed: 7
   Player_Run_Speed: 13.5
   Player_Gravity: 9.81
-  Player_RayCast_HoverHeight: 0.2
-  Player_RayCast_Distance: 1.1
-  Player_RayCast_Fallin_Check: 1
-  Player_RayCast_UpLift: 0.05
+  Player_RayCast_HoverHeight: 0.1
+  Player_RayCast_Distance: 0.05
+  Player_RayCast_Fallin_Check: 0.02
+  Player_RayCast_UpLift: 0.02
   RayIgnore:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 119
   HeadAnimator: {fileID: 908480612}
   DEBUG_RAYCAST_TARGET: 0
 --- !u!136 &3208009581476350989
@@ -844,10 +844,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.75
+  m_Radius: 0.1
+  m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &808939218
 MonoBehaviour:
   m_ObjectHideFlags: 0

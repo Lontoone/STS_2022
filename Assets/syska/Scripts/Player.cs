@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         PlayerHUD.UpdateLifes();
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(Player_Jump_Key))
@@ -72,13 +73,13 @@ public class Player : MonoBehaviour
             if (isUpSideDown)
             {
                 c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 180), 1);
-                c.transform.DOLocalMoveY(0.25f, 1);
+                c.transform.DOLocalMoveY(0.05f, 1);
                 mc.localEulerAngles = new Vector3(-90, 90, 90);
             }
             else
             {
                 c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 0), 1);
-                c.transform.DOLocalMoveY(1.75f, 1);
+                c.transform.DOLocalMoveY(0.45f, 1);
                 mc.localEulerAngles = new Vector3(90, 90, 90);
             }
         }
