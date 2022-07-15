@@ -71,15 +71,26 @@ public abstract class Enemy : MonoBehaviour
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
             //TODO: Ray 穿牆設定
-            //sightCollider.collidersInRange[i];
+            Vector3 dir = (sightCollider.collidersInRange[i].transform.position - transform.position).normalized;
+            RaycastHit hit;
+            //看到敵人
+            Debug.Log("See "+ sightCollider.collidersInRange[i].gameObject.name);
+            if (Physics.Raycast(transform.position, dir, out hit)) {
+                if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject) {
+                    SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
+                    return true;
+                }
+            }
+
         }
+        /*
         //TEMP:
         //看到人=>追逐
         if (sightCollider.collidersInRange.Count > 0)
         {
             SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
             return true;
-        }
+        }*/
         
         return false;
     }
@@ -91,6 +102,7 @@ public abstract class Enemy : MonoBehaviour
         {
             //Idle ....
             Debug.Log("Idle");
+            stateString = "Idle";
             idleTimeColor = StartCoroutine(WaitForIdle());
         }
         else
@@ -117,6 +129,7 @@ public abstract class Enemy : MonoBehaviour
         //animator....
         navAgent.speed = moveSpeed;
         navAgent.destination = moveTarget.position;
+        stateString = "Move";
     }
 
     protected virtual void Run()
@@ -124,6 +137,7 @@ public abstract class Enemy : MonoBehaviour
         //eMove?.Invoke(transform.position);
         navAgent.speed = runSpeed;
         navAgent.destination = moveTarget.position;
+        stateString = "Run";
         //animator....
     }
 
