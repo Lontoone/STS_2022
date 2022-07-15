@@ -42,6 +42,9 @@ public class Player : MonoBehaviour
     public static bool isUpSideDown = false;
     public static bool isRunning = false;
 
+    [Header("DEBUG")]
+    public bool DEBUG_RAYCAST_TARGET = false;
+
     private void Awake()
     {
         instance = this;
@@ -159,17 +162,8 @@ public class Player : MonoBehaviour
                 finalvelocity += Vector3.down * 9.8f;
             }
         }
-        //if (hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
+        if (DEBUG_RAYCAST_TARGET && hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
         r.velocity = finalvelocity;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "BlueNote" || other.gameObject.tag == "RedNote")
-        {
-            Debug.Log(other.gameObject.name);
-            Destroy(other.gameObject);
-        }
     }
 
     private void OnDrawGizmos()

@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 3208009581476350984}
   - component: {fileID: 3208009581476350985}
   - component: {fileID: 3208009581476350989}
+  - component: {fileID: 808939218}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -710,6 +711,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   HeadAnimator: {fileID: 908480612}
+  DEBUG_RAYCAST_TARGET: 0
 --- !u!136 &3208009581476350989
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -724,6 +726,20 @@ CapsuleCollider:
   m_Height: 1.75
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &808939218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208009581476350986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ae9ed4eadb64ebaa40f6bf35db5fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Note_Normal_Multipy: 0.5
+  Note_ShowTime_Multipy: 1.5
 --- !u!1 &3208009582361922631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20, y: 20}
   m_SizeDelta: {x: 410, y: 510}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2371803758794419004
