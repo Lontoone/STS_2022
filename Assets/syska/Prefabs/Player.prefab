@@ -525,8 +525,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   USD_Point: {fileID: 1469965365}
   MouseSens: 3.1
-  movespeedmultipy: 7
+  Player_Walk_FOV: 60
+  Player_Run_FOV: 90
+  Player_Camera_FOV_ChangeTime: 1
+  Player_Jump_Key: 113
+  Player_Run_Key: 304
+  Player_Walk_Speed: 7
+  Player_Run_Speed: 13.5
   HoverHeight: 0.2
+  RayIgnore:
+    serializedVersion: 2
+    m_Bits: 2147483647
   HeadAnimator: {fileID: 908480612}
 --- !u!136 &3208009581476350989
 CapsuleCollider:
