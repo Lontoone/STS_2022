@@ -12,7 +12,6 @@ public class ColliderDetector : MonoBehaviour
     public event Action<GameObject> mOnTriggerLeave;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ENTER");
         if (!(layerMask == (layerMask | (1 << other.gameObject.layer)))) { return; }
         if (!collidersInRange.Contains(other.gameObject))
         {
