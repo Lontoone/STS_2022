@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public abstract class Enemy : MonoBehaviour
 {
     public bool constantChasing = false;
+    public AudioSource audioSource;
+    public AudioClip runClip;
     public float moveSpeed;
     public float runSpeed;
     //怪物動作:(1)Idle (2)移動　(3)看到玩家後衝刺 (4)Jump Scare
@@ -31,11 +33,18 @@ public abstract class Enemy : MonoBehaviour
     {
         initFloorY = transform.position.y;
         navAgent.speed = moveSpeed;
+
+        fightCollider.mOnTriggerEnter += CheckKillPleyer;
+    }
+
+    private void OnDestroy()
+    {
+        fightCollider.mOnTriggerEnter -= CheckKillPleyer;
     }
     private void Update()
     {
         bool isInSight = SightCheck();
-        
+
         isReached = Vector3.Distance(moveTarget.position, navAgent.transform.position) < reachedCheckRadious;
 
         if (isInSight)
@@ -59,7 +68,8 @@ public abstract class Enemy : MonoBehaviour
 
             //行走超時
             walkTime += Time.deltaTime;
-            if (walkTime > 5) {
+            if (walkTime > 5)
+            {
                 walkTime = 0;
                 NotSeeTarget();
             }
@@ -69,6 +79,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual bool SightCheck()
     {
+
         //判斷距離 (是否甩開)
         if (chasingTarget != null && Vector3.Distance(chasingTarget.transform.position, transform.position) < loseSightDistance)
         {
@@ -80,13 +91,19 @@ public abstract class Enemy : MonoBehaviour
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
             GameObject _chasingObj = sightCollider.collidersInRange[i];
-            Vector3 dir = (_chasingObj.transform.position+ new Vector3(0, 0.5f, 0) - transform.position).normalized ;
+
+            if (constantChasing) {
+                SetMoveTarget(_chasingObj.transform.position);
+                return true;
+            }
+
+            Vector3 dir = (_chasingObj.transform.position + new Vector3(0, 0.5f, 0) - transform.position).normalized;
             RaycastHit hit;
             //視覺
-            Ray _ray = new Ray(transform.position , dir);
-            Debug.DrawRay(_ray.origin,dir ,Color.red );
+            Ray _ray = new Ray(transform.position, dir);
+            Debug.DrawRay(_ray.origin, dir, Color.red);
 
-            if ( Physics.Raycast(_ray, out hit, 1000, sightBlock) || constantChasing)
+            if (Physics.Raycast(_ray, out hit, 1000, sightBlock))
             {
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
                 {
@@ -119,6 +136,7 @@ public abstract class Enemy : MonoBehaviour
             Debug.Log("Idle");
             stateString = "Idle";
             animator.Play("Walk");
+            audioSource.Stop();
             idleTimeCoro = StartCoroutine(WaitForIdle());
         }
         else
@@ -139,6 +157,12 @@ public abstract class Enemy : MonoBehaviour
         moveTarget.position = _pos;
     }
 
+    private void CheckKillPleyer(GameObject colliderEntered)
+    {
+        Player.Kill();
+
+    }
+
     protected virtual void Move()
     {
         //eMove?.Invoke(transform.position);
@@ -157,8 +181,14 @@ public abstract class Enemy : MonoBehaviour
         navAgent.destination = moveTarget.position;
         stateString = "Run";
         //animator....
-        if (animator != null) {
+        if (animator != null)
+        {
             animator.Play("Run");
+        }
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(runClip);
         }
     }
     /*
