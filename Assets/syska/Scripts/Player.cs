@@ -61,9 +61,12 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        PlayerHUD.UpdateLifes();
     }
 
+    private void Start()
+    {
+        PlayerHUD.UpdateLifes();
+    }
 
     private void Update()
     {

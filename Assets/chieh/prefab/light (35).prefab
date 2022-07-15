@@ -114,7 +114,7 @@ Transform:
   - {fileID: 1380541339536404765}
   - {fileID: 325102985372413623}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 176.937, z: 13.205}
 --- !u!1 &5652642449804993696
 GameObject:
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 325102985372413623}
   - component: {fileID: 3371367423230083843}
-  - component: {fileID: 9162380237090149261}
+  - component: {fileID: 6662394421877474114}
   m_Layer: 0
   m_Name: spotLight1
   m_TagString: light
@@ -158,7 +158,7 @@ Light:
   m_GameObject: {fileID: 5652642449804993696}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.5568628, g: 0.5921569, b: 0.9725491, a: 1}
   m_Intensity: 3
@@ -167,7 +167,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -211,7 +211,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &9162380237090149261
+--- !u!114 &6662394421877474114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
