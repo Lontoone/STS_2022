@@ -7,6 +7,7 @@ public class CloseLightControl : MonoBehaviour
     public GameObject player;
     public float openDistance = 5;
     public int lightMaxCount = 5;
+    [SerializeField]
     private Light[] lights;
 
     WaitForFixedUpdate wait = new WaitForFixedUpdate();

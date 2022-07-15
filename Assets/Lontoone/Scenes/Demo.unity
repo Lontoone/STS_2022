@@ -32485,8 +32485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 773812403}
-  openDistance: 2
-  lightMaxCount: 4
+  openDistance: 5
+  lightMaxCount: 8
+  lights: []
 --- !u!4 &1674140237
 Transform:
   m_ObjectHideFlags: 0
