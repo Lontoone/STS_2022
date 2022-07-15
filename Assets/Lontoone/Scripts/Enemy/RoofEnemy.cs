@@ -43,4 +43,13 @@ public class RoofEnemy : Enemy
         transform.rotation = Quaternion.Euler(navAgent.transform.rotation.eulerAngles);
 
     }
+
+    public override void OnRapid()
+    {
+        //ÂÅ©Ç=>ÅÜ¦¨«í°lÂÜ¼Ò¦¡
+        Bounds _fullSceneBound = sightCollider.GetComponent<Collider>().bounds;
+        _fullSceneBound.size = new Vector3(10,0.5f,10);
+
+        constantChasing = true;
+    }
 }
