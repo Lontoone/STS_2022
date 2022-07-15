@@ -254,6 +254,7 @@ MonoBehaviour:
   constantChasing: 0
   audioSource: {fileID: 1216400743235964710}
   runClip: {fileID: 8300000, guid: 0b8f26985f055c141b309557d39f5c3e, type: 3}
+  discoverClip: {fileID: 8300000, guid: 913c3afc3a45d5146a1d694298cb8083, type: 3}
   moveSpeed: 0.5
   runSpeed: 1.1
   animator: {fileID: 7064649910344663755}
