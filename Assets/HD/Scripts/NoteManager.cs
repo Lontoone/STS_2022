@@ -79,14 +79,14 @@ public class NoteManager : MonoBehaviour
             for (int i = 0; i < BlueNoteLibrary.Count; i++)
             {
                 if(BlueNoteLibrary[i] != null){
-                    BlueNoteLibrary[i].GetComponent<Note>().ChangeColor();
+                    BlueNoteLibrary[i].GetComponent<Note>().BlueChangeIntensity();
                 }                
             }
         }else if(PlaneManager.Instance.isShowTime && !PlaneManager.Instance.isBlueTurn){
             for (int i = 0; i < RedNoteLibrary.Count; i++)
             {
                 if(RedNoteLibrary[i] != null){
-                    RedNoteLibrary[i].GetComponent<Note>().ChangeColor();
+                    RedNoteLibrary[i].GetComponent<Note>().RedChangeIntensity();
                 }                
             }
         }else{
