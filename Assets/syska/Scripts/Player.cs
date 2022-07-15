@@ -192,6 +192,7 @@ public class Player : MonoBehaviour
         //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();
+        if (ScoreManager.Life <= 0) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); }
     }
 
     private void OnDrawGizmos()
