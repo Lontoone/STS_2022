@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6897687525329494402}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -110,7 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b671252159cfc148aa6d144985a9674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.37254906, g: 0.8938895, b: 1, a: 1}
-  minBrightness: 0
-  maxBrightness: 1
-  rate: 10
+  ChangeRate: 1
+  emissiveIntensity: 10
