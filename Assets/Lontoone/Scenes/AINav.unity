@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &930187339
 AudioListener:
   m_ObjectHideFlags: 0
@@ -722,6 +722,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13434104, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: RayIgnore.m_Bits
       value: 119
@@ -777,6 +781,14 @@ PrefabInstance:
     - target: {fileID: 3208009581476350990, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208009582707194360, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212017420792126726, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -969,7 +981,7 @@ GameObject:
   - component: {fileID: 1537452408}
   - component: {fileID: 1537452407}
   - component: {fileID: 1537452406}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1412,7 +1424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: runSpeed
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: moveSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveTarget
@@ -1437,6 +1453,10 @@ PrefabInstance:
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: walk.description
       value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: loseSightDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: sightBlock.m_Bits
@@ -1517,6 +1537,10 @@ PrefabInstance:
     - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
