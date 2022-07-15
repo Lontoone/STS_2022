@@ -22,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
     private float initFloorY;
     Coroutine idleTimeColor;
     private string stateString = "idle";
+    public LayerMask sightBlock;
     public virtual void Start()
     {
         initFloorY = transform.position.y;
@@ -68,29 +69,34 @@ public abstract class Enemy : MonoBehaviour
 
     public bool SightCheck()
     {
+        /*
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
             //TODO: Ray 穿牆設定
             Vector3 dir = (sightCollider.collidersInRange[i].transform.position - transform.position).normalized;
             RaycastHit hit;
             //看到敵人
-            Debug.Log("See "+ sightCollider.collidersInRange[i].gameObject.name);
-            if (Physics.Raycast(transform.position, dir, out hit)) {
+            //Debug.Log("See "+ sightCollider.collidersInRange[i].gameObject.name);
+            Ray _ray=new Ray();
+            _ray.direction = dir;
+            _ray.origin = transform.position;
+            if (Physics.Raycast(_ray ,out hit, 100, sightBlock)) {
+                Debug.Log("See " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject) {
                     SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
-                    return true;
+                    return false;
                 }
             }
 
-        }
-        /*
+        }*/
+        
         //TEMP:
         //看到人=>追逐
         if (sightCollider.collidersInRange.Count > 0)
         {
             SetMoveTarget(sightCollider.collidersInRange[0].transform.position);
             return true;
-        }*/
+        }
         
         return false;
     }
