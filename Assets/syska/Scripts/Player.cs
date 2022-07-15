@@ -16,11 +16,17 @@ public class Player : MonoBehaviour
     private float YLock;
     private bool mLock;
 
+    [Header("Player Camera")]
+    public float Player_Walk_FOV = 60;
+    public float Player_Run_FOV = 90;
+    public float Player_Camera_FOV_ChangeTime = 2f;
+    private bool dotweenlerprun = false;
+
     [Header("Player Movement")]
     public KeyCode Player_Jump_Key = KeyCode.Q;
     public KeyCode Player_Run_Key = KeyCode.LeftShift;
-    public float movespeedmultipy = 7;
-    public float runspeedmultipy = 10;
+    public float Player_Walk_Speed = 7;
+    public float Player_Run_Speed = 10;
     private Vector3 finalvelocity;
 
     public float HoverHeight = 0.2f;
@@ -67,6 +73,16 @@ public class Player : MonoBehaviour
         }
         isRunning = Input.GetKey(Player_Run_Key);
 
+        if (isRunning && !dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Run_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = true;
+        }else if (!isRunning && dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Walk_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = false;
+        }
+
         #region Cursor Lock/Release
         if (Input.GetMouseButtonDown(0))
         {
@@ -94,9 +110,10 @@ public class Player : MonoBehaviour
         finalvelocity = Vector3.zero;
         finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
-        finalvelocity *= isRunning ? runspeedmultipy : movespeedmultipy;
+        finalvelocity = Vector3.Normalize(finalvelocity) * (isRunning ? Player_Run_Speed : Player_Walk_Speed);
         #endregion
 
+        #region Player HeadBob Animation
         HeadAnimator.speed = isRunning ? 1.5f : 1f;
         if (finalvelocity.x != 0 && finalvelocity.z != 0)
         {
@@ -106,6 +123,7 @@ public class Player : MonoBehaviour
         {
             HeadAnimator.SetBool("isMoving", false);
         }
+        #endregion
 
         if (Input.GetKeyDown(KeyCode.K)) Damage();
     }
