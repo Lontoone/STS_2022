@@ -150,10 +150,11 @@ public abstract class Enemy : MonoBehaviour
             SetMoveTarget(_newTargetPos);
         }
     }
-
+    public virtual void OnRapid() { 
+        //TODO....
+    }
     public virtual void SetMoveTarget(Vector3 _pos)
     {
-        //TODO: y¶b
         moveTarget.position = _pos;
     }
 
