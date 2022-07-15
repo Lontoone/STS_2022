@@ -151,7 +151,7 @@ Transform:
   - {fileID: 7313868699618909383}
   - {fileID: 2271609578368335780}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2271609579390322852
 MeshFilter:
@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constantChasing: 0
-  moveSpeed: 1
-  runSpeed: 3
+  moveSpeed: 0.5
+  runSpeed: 2
   animator: {fileID: 7064649910344663755}
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2271609578368335779}

@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constantChasing: 0
-  moveSpeed: 1
-  runSpeed: 3
+  moveSpeed: 0.5
+  runSpeed: 1.5
   animator: {fileID: 8631048530170337808}
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2365661590877306991}
