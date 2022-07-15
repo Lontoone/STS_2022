@@ -79,6 +79,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual bool SightCheck()
     {
+
         //判斷距離 (是否甩開)
         if (chasingTarget != null && Vector3.Distance(chasingTarget.transform.position, transform.position) < loseSightDistance)
         {
@@ -90,13 +91,19 @@ public abstract class Enemy : MonoBehaviour
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
             GameObject _chasingObj = sightCollider.collidersInRange[i];
+
+            if (constantChasing) {
+                SetMoveTarget(_chasingObj.transform.position);
+                return true;
+            }
+
             Vector3 dir = (_chasingObj.transform.position + new Vector3(0, 0.5f, 0) - transform.position).normalized;
             RaycastHit hit;
             //視覺
             Ray _ray = new Ray(transform.position, dir);
             Debug.DrawRay(_ray.origin, dir, Color.red);
 
-            if (Physics.Raycast(_ray, out hit, 1000, sightBlock) || constantChasing)
+            if (Physics.Raycast(_ray, out hit, 1000, sightBlock))
             {
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
                 {
