@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1380541339536404765
 Transform:
@@ -97,7 +97,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2860794654376408584
 Transform:
@@ -106,7 +106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3240416039380544690}
-  m_LocalRotation: {x: 0.114942886, y: 0.9930125, z: 0.00307333, w: 0.02655166}
+  m_LocalRotation: {x: 0.1149394, y: 0.9930129, z: 0.003073048, w: 0.026549438}
   m_LocalPosition: {x: -7.408, y: 0.642, z: 4.484}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
@@ -125,14 +125,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325102985372413623}
-  - component: {fileID: 3371367423230083843}
-  - component: {fileID: 6662394421877474114}
+  - component: {fileID: 12136010}
+  - component: {fileID: 12136008}
   m_Layer: 0
   m_Name: spotLight1
   m_TagString: light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &325102985372413623
 Transform:
@@ -149,7 +149,7 @@ Transform:
   m_Father: {fileID: 2860794654376408584}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 104.776, y: -61.718994, z: -62.277008}
---- !u!108 &3371367423230083843
+--- !u!108 &12136010
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,12 +158,12 @@ Light:
   m_GameObject: {fileID: 5652642449804993696}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.5568628, g: 0.5921569, b: 0.9725491, a: 1}
-  m_Intensity: 3
-  m_Range: 3
-  m_SpotAngle: 87
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -200,7 +200,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -211,7 +211,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &6662394421877474114
+--- !u!114 &12136008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

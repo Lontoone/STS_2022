@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     public float Note_Normal_Multipy = 0.5f;
     public float Note_ShowTime_Multipy = 1.5f;
 
-    public static int Life = 0;
+    public static int Life = 3;
     private float Code_Percent = 0f;
     private int Note_Count = 0;
 
@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         Note_Count++;
+        PlayerHUD.UpdateLifes();
         PlayerHUD.SetNoteCount(Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
     }

@@ -182,7 +182,8 @@ public class Player : MonoBehaviour
 
     public static void Kill()
     {
-
+        ScoreManager.Life--;
+        PlayerHUD.UpdateLifes();
     }
 
     private void OnDrawGizmos()
