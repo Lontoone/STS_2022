@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     public float Note_Normal_Multipy = 0.5f;
     public float Note_ShowTime_Multipy = 1.5f;
 
+    public static int Life = 0;
     private float Code_Percent = 0f;
     private int Note_Count = 0;
 
