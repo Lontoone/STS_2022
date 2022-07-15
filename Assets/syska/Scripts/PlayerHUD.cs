@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PlayerHUD : MonoBehaviour
 {
     public static PlayerHUD instance;
-    public Text Health;
-    public Text Codes;
+    public Image ProgressBar;
+    public Text Lifes;
 
-    private void Awake() { instance = this; }
+    private void Awake() { instance = this; SetProgressBar(0); }
 
-    public static void UpdateLifes() { instance.Health.text = $"Lifes: {Player.Lifes}/3"; }
-    public static void UpdateCodes() { instance.Codes.text = "Codes: "; }
+    public static void UpdateLifes() { instance.Lifes.text = $"Lifes: {0}/3"; }
+    public static void SetProgressBar(float percent) { instance.ProgressBar.fillAmount = percent; }
 }
