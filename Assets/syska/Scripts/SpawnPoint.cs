@@ -13,6 +13,10 @@ public class SpawnPoint : MonoBehaviour
                 //WIN
                 //fade to black
                 //show ending cg
+                if (ScoreManager.Code_Percent == 1)
+                {
+                    //100%
+                }
             }
             Debug.Log(other.gameObject.name);
         }

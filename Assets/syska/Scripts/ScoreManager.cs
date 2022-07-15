@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     public float Note_ShowTime_Multipy = 1.5f;
 
     public static int Life = 3;
-    private float Code_Percent = 0f;
+    public static float Code_Percent = 0f;
     public static int Note_Count = 0;
 
     public static event System.Action FEVER_TIME;
