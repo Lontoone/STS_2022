@@ -75,28 +75,24 @@ public abstract class Enemy : MonoBehaviour
 
     public bool SightCheck()
     {
+        //判斷距離 (是否甩開)
+        if (chasingTarget != null && Vector3.Distance(chasingTarget.transform.position, transform.position) < loseSightDistance)
+        {
+            SetMoveTarget(chasingTarget.transform.position);
+            return true;
+        }
 
+        //追丟了，尋找視線內新物件
         for (int i = 0; i < sightCollider.collidersInRange.Count; i++)
         {
             GameObject _chasingObj = sightCollider.collidersInRange[i];
-            //TODO: Ray 穿牆設定
             Vector3 dir = (_chasingObj.transform.position+ new Vector3(0, 0.5f, 0) - transform.position).normalized ;
             RaycastHit hit;
-            //看到敵人
-            Debug.Log("See "+ _chasingObj.gameObject.name);
-
-            //判斷距離 (是否甩開)
-            if (chasingTarget!=null && Vector3.Distance(_chasingObj.transform.position , transform.position) < loseSightDistance) {
-                SetMoveTarget(_chasingObj.transform.position);
-                return true;
-            }
-
             //視覺
-            Debug.Log("Do Ray");
             Ray _ray = new Ray(transform.position , dir);
             Debug.DrawRay(_ray.origin,dir ,Color.red );
 
-            if (Physics.Raycast(_ray, out hit, 10000, sightBlock))
+            if (Physics.Raycast(_ray, out hit, 1000, sightBlock))
             {
                 Debug.Log("See " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
@@ -106,8 +102,6 @@ public abstract class Enemy : MonoBehaviour
                     return true;
                 }
             }
-
-
         }
 
         //TEMP:

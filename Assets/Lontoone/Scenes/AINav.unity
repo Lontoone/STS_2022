@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &930187339
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1424,7 +1424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: runSpeed
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: moveSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveTarget
@@ -1452,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: loseSightDistance
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: sightBlock.m_Bits
