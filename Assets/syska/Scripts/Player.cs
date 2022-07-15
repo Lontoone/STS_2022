@@ -28,9 +28,15 @@ public class Player : MonoBehaviour
     public KeyCode Player_Run_Key = KeyCode.LeftShift;
     public float Player_Walk_Speed = 7;
     public float Player_Run_Speed = 10;
+    public float Player_Gravity = 9.81f;
+    [Header("Player RayCast !!Danger!!")]
+    public float Player_RayCast_HoverHeight = 0.2f;
+    [Tooltip("Hover Height + Player_RayCast_Distance")]
+    public float Player_RayCast_Distance = 1.1f;
+    public float Player_RayCast_Fallin_Check = 1f;
+    public float Player_RayCast_UpLift = 0.05f;
     private Vector3 finalvelocity;
 
-    public float HoverHeight = 0.2f;
     private RaycastHit hhRayHit;
     [Tooltip("Select What Ray Will Hit, Deselect What Ray Will Ignore")]
     public LayerMask RayIgnore;
@@ -136,30 +142,30 @@ public class Player : MonoBehaviour
     {
         if (isUpSideDown)
         {
-            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
+            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
             {
-                if (hhRayHit.distance < HoverHeight + 1)
+                if (hhRayHit.distance < Player_RayCast_HoverHeight + Player_RayCast_Fallin_Check)
                 {
-                    transform.position -= Vector3.up * 0.05f;
+                    transform.position -= Vector3.up * Player_RayCast_UpLift;
                 }
             }
             else
             {
-                finalvelocity -= Vector3.down * 9.8f;
+                finalvelocity -= Vector3.down * Player_Gravity;
             }
         }
         else
         {
-            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
+            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
             {
-                if (hhRayHit.distance < HoverHeight + 1)
+                if (hhRayHit.distance < Player_RayCast_HoverHeight + Player_RayCast_Fallin_Check)
                 {
-                    transform.position += Vector3.up * 0.05f;
+                    transform.position += Vector3.up * Player_RayCast_UpLift;
                 }
             }
             else
             {
-                finalvelocity += Vector3.down * 9.8f;
+                finalvelocity += Vector3.down * Player_Gravity;
             }
         }
         if (DEBUG_RAYCAST_TARGET && hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
