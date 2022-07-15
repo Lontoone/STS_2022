@@ -32179,7 +32179,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  BlueObjectToPool: {fileID: 6897687525329494402, guid: d1f0ceb13d5f03d4daebd48ec3199f70, type: 3}
+  BlueObjectToPool: {fileID: 2218336977754844380, guid: 4a3dcca8af273df489f325a975ccff5f, type: 3}
   RedPooledObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -33181,7 +33181,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  RedObjectToPool: {fileID: 8424842437944069857, guid: dcac38d4a949e7945ae9945028b2b543, type: 3}
+  RedObjectToPool: {fileID: 298140389589780565, guid: 166265d3f37da8e44993ca17fdfc6eb8, type: 3}
   amountToPool: 1000
 --- !u!114 &1531950359
 MonoBehaviour:
