@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
     {
         if (isUpSideDown)
         {
-            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
+            if (Physics.Raycast(USD_Point.position , transform.up, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
             {
                 if (hhRayHit.distance < Player_RayCast_HoverHeight + Player_RayCast_Fallin_Check)
                 {
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
+            if (Physics.Raycast(transform.position , transform.up * -1, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
             {
                 if (hhRayHit.distance < Player_RayCast_HoverHeight + Player_RayCast_Fallin_Check)
                 {
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + Vector3.up, hhRayHit.point);
     }
 }
