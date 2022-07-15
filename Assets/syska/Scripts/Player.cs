@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public static Player instance;
     private Rigidbody r;
     private Camera c;
-    public Transform mc;
+    public Camera mc;
 
     public Transform USD_Point;
 
@@ -77,13 +77,17 @@ public class Player : MonoBehaviour
             {
                 c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 180), 1);
                 c.transform.DOLocalMoveY(0.05f, 1);
-                mc.localEulerAngles = new Vector3(-90, 90, 90);
+                mc.transform.localEulerAngles = new Vector3(-90, 0, 180);
+                mc.nearClipPlane = -0.4f;
+                mc.farClipPlane = 1.4f;
             }
             else
             {
                 c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 0), 1);
                 c.transform.DOLocalMoveY(0.45f, 1);
-                mc.localEulerAngles = new Vector3(90, 90, 90);
+                mc.transform.localEulerAngles = new Vector3(90, 0, 0);
+                mc.nearClipPlane = -1.4f;
+                mc.farClipPlane = 0.4f;
             }
         }
         isRunning = Input.GetKey(Player_Run_Key);
