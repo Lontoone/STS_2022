@@ -17,6 +17,10 @@ public class SpawnPoint : MonoBehaviour
                 {
                     //100%
                 }
+                else
+                {
+                    //not 100%
+                }
             }
             Debug.Log(other.gameObject.name);
         }
