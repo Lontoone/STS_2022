@@ -151,7 +151,7 @@ Transform:
   - {fileID: 2365661590913622693}
   - {fileID: 2365661589312343545}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2365661590877306989
 GameObject:
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 2365661590877306977}
   - component: {fileID: 2365661590877306976}
   - component: {fileID: 2365661590877306991}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.8757055, y: 2.1965065, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2365661590877306991
 MonoBehaviour:
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  runSpeed: 0
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2365661590877306991}
   fightCollider: {fileID: 0}
