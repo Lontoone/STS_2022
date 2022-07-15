@@ -17,17 +17,23 @@ public class Player : MonoBehaviour
     private bool mLock;
 
     [Header("Player Movement")]
-    public float movespeedmultipy = 1;
+    public KeyCode Player_Jump_Key = KeyCode.Q;
+    public KeyCode Player_Run_Key = KeyCode.LeftShift;
+    public float movespeedmultipy = 7;
+    public float runspeedmultipy = 10;
     private Vector3 finalvelocity;
 
     public float HoverHeight = 0.2f;
     private RaycastHit hhRayHit;
+    [Tooltip("Select What Ray Will Hit, Deselect What Ray Will Ignore")]
+    public LayerMask RayIgnore;
 
     [Header("Player HeadBob Animation")]
     public Animator HeadAnimator;
 
     [Header("Player States")]
     public static bool isUpSideDown = false;
+    public static bool isRunning = false;
     public static int Lifes = 3;
 
     private void Awake()
@@ -45,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(Player_Jump_Key))
         {
             isUpSideDown = !isUpSideDown;
             if (isUpSideDown)
@@ -59,6 +65,7 @@ public class Player : MonoBehaviour
                 c.transform.DOLocalMoveY(1.75f, 1);
             }
         }
+        isRunning = Input.GetKey(Player_Run_Key);
 
         #region Cursor Lock/Release
         if (Input.GetMouseButtonDown(0))
@@ -87,9 +94,10 @@ public class Player : MonoBehaviour
         finalvelocity = Vector3.zero;
         finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
-        finalvelocity *= movespeedmultipy;
+        finalvelocity *= isRunning ? runspeedmultipy : movespeedmultipy;
         #endregion
 
+        HeadAnimator.speed = isRunning ? 1.5f : 1f;
         if (finalvelocity.x != 0 && finalvelocity.z != 0)
         {
             HeadAnimator.SetBool("isMoving", true);
@@ -106,7 +114,7 @@ public class Player : MonoBehaviour
     {
         if (isUpSideDown)
         {
-            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f))
+            if (Physics.Raycast(USD_Point.position + Vector3.down, transform.up, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
             {
                 if (hhRayHit.distance < HoverHeight + 1)
                 {
@@ -120,7 +128,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f))
+            if (Physics.Raycast(transform.position + Vector3.up, transform.up * -1, out hhRayHit, HoverHeight + 1.1f, RayIgnore))
             {
                 if (hhRayHit.distance < HoverHeight + 1)
                 {
