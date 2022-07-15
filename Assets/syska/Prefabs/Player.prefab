@@ -816,18 +816,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mc: {fileID: 13434105}
   USD_Point: {fileID: 1469965365}
-  MouseSens: 3.1
+  MouseSens: 5
   Player_Walk_FOV: 60
   Player_Run_FOV: 90
-  Player_Camera_FOV_ChangeTime: 1
+  Player_Camera_FOV_ChangeTime: 9.81
   Player_Jump_Key: 113
   Player_Run_Key: 304
   Player_Walk_Speed: 7
   Player_Run_Speed: 13.5
   Player_Gravity: 9.81
   Player_RayCast_HoverHeight: 0.1
-  Player_RayCast_Distance: 0.05
-  Player_RayCast_Fallin_Check: 0.02
+  Player_RayCast_Distance: 0.2
+  Player_RayCast_Fallin_Check: 0.05
   Player_RayCast_UpLift: 0.02
   RayIgnore:
     serializedVersion: 2
