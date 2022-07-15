@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public float moveSpeed;
     public float runSpeed;
     //怪物動作:(1)Idle (2)移動　(3)看到玩家後衝刺 (4)Jump Scare
-    //public ActionController.mAction idle ,walk, run ;
+    public Animator animator;
     public Transform moveTarget;
     public ColliderDetector sightCollider;
     public ColliderDetector fightCollider;
@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour
     private bool isReached = true;
     public float reachedCheckRadious = 1f;
     private float initFloorY;
-    Coroutine idleTimeCoro,walkRestCoro;
+    Coroutine idleTimeCoro;
     private string stateString = "idle";
     public LayerMask sightBlock;
     //private bool isInSight;
@@ -118,6 +118,7 @@ public abstract class Enemy : MonoBehaviour
             //Idle ....
             Debug.Log("Idle");
             stateString = "Idle";
+            animator.Play("Walk");
             idleTimeCoro = StartCoroutine(WaitForIdle());
         }
         else
@@ -145,6 +146,8 @@ public abstract class Enemy : MonoBehaviour
         navAgent.speed = moveSpeed;
         navAgent.destination = moveTarget.position;
         stateString = "Move";
+
+        animator.Play("Walk");
     }
 
     protected virtual void Run()
@@ -154,6 +157,9 @@ public abstract class Enemy : MonoBehaviour
         navAgent.destination = moveTarget.position;
         stateString = "Run";
         //animator....
+        if (animator != null) {
+            animator.Play("Run");
+        }
     }
     /*
     private void OnDrawGizmos()
@@ -168,11 +174,6 @@ public abstract class Enemy : MonoBehaviour
         idleTimeCoro = null;
     }
 
-    IEnumerator WalkingResetTime() {
-        yield return new WaitForSeconds(5);
-        NotSeeTarget();
-        walkRestCoro = null;
-    }
 
     void OnGUI()
     {
