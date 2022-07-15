@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3515034, y: 1.5080055, z: 1}
-  m_Center: {x: 0, y: 0.25400257, z: 0}
+  m_Size: {x: 2.3515034, y: 0.35, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2271609578368335779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ Transform:
   m_Children:
   - {fileID: 2271609578368335780}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2271609579390322852
 MeshFilter:
@@ -249,15 +249,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dddd78c49d2f54e846af04bf7779e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constantChasing: 0
   moveSpeed: 1
   runSpeed: 3
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2271609578368335779}
   fightCollider: {fileID: 0}
   navAgent: {fileID: 2271609579390322855}
-  moveableBounds:
-    m_Center: {x: 0, y: 0, z: -9.77}
-    m_Extent: {x: 5, y: 1, z: 5}
+  moveableBounds: {fileID: 0}
   isReached: 1
   reachedCheckRadious: 1
   sightBlock:
