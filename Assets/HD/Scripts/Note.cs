@@ -47,19 +47,19 @@ public class Note : MonoBehaviour
 
     public void RedChangeIntensity(){
          emissiveIntensity = 10;
-         Color emissiveColor = new Color(1f, 0.1f, 0.1f, 1);
+         Color emissiveColor = new Color(0.1f, 1.0f, 0.1f, 1);
          this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity * timer);
     }
 
     public void BlueResetColor(){
          emissiveIntensity = 1;
-         Color emissiveColor = Color.blue;
+         Color emissiveColor = new Color(0.556f, 0.592f, 1f, 1);
          this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity);
     }
 
     public void RedResetColor(){
          emissiveIntensity = 1;
-         Color emissiveColor = Color.red;
+         Color emissiveColor = new Color(0.7f, 1f, 0.772f, 1);
          this.gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissiveColor * emissiveIntensity);
     }
 
