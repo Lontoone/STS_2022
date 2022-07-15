@@ -1424,11 +1424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: runSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveTarget
@@ -1542,6 +1542,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
@@ -1553,6 +1557,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2365661589312343494, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365661589312343495, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2365661590611690072, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1603,16 +1615,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365661590611690151, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2365661590877306989, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2365661590913622619, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: runSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365661590913622619, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365661590913622619, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: moveTarget
       value: 
       objectReference: {fileID: 48059975}
+    - target: {fileID: 2365661590913622619, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: sightBlock.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365661590913622692, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}

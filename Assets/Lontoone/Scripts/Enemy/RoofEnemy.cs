@@ -29,4 +29,18 @@ public class RoofEnemy : Enemy
         transform.rotation = Quaternion.Euler( navAgent.transform.rotation.eulerAngles);
 
     }
+
+    protected override void Run()
+    {
+        base.Run();
+
+        Vector3 _copyPositionToRoof = navAgent.transform.position;
+        _copyPositionToRoof.y = transform.position.y;
+        transform.position = _copyPositionToRoof;
+        //transform.localPosition = new Vector3(0,ralativeY,0);
+
+        //Copy rotation
+        transform.rotation = Quaternion.Euler(navAgent.transform.rotation.eulerAngles);
+
+    }
 }
