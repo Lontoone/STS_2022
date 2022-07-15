@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public float Player_Walk_FOV = 60;
     public float Player_Run_FOV = 90;
     public float Player_Camera_FOV_ChangeTime = 2f;
+    private bool dotweenlerprun = false;
 
     [Header("Player Movement")]
     public KeyCode Player_Jump_Key = KeyCode.Q;
@@ -72,8 +73,15 @@ public class Player : MonoBehaviour
         }
         isRunning = Input.GetKey(Player_Run_Key);
 
-
-        c.DOFieldOfView(isRunning ? Player_Run_FOV : Player_Walk_FOV, Player_Camera_FOV_ChangeTime);
+        if (isRunning && !dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Run_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = true;
+        }else if (!isRunning && dotweenlerprun)
+        {
+            c.DOFieldOfView(Player_Walk_FOV, Player_Camera_FOV_ChangeTime);
+            dotweenlerprun = false;
+        }
 
         #region Cursor Lock/Release
         if (Input.GetMouseButtonDown(0))
