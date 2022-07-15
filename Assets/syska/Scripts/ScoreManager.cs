@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static int allScore = 124;
     public AudioClip impact;
     AudioSource audiosource;
 
@@ -41,7 +42,8 @@ public class ScoreManager : MonoBehaviour
         {
             Noted(other.gameObject.tag == "BlueNote");
             audiosource.PlayOneShot(impact);
-            Debug.Log("吃到音符");
+            allScore -= 1 ;
+            //Debug.Log("吃到音符");
             Destroy(other.gameObject);
         }
     }

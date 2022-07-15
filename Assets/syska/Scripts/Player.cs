@@ -2,10 +2,15 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(AudioSource))]
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
+    public AudioClip impact;
+    AudioSource audiosource;
+
+
     public static Player instance;
     private Rigidbody r;
     private Camera c;
@@ -24,7 +29,7 @@ public class Player : MonoBehaviour
     private bool dotweenlerprun = false;
 
     [Header("Player Movement")]
-    public KeyCode Player_Jump_Key = KeyCode.Q;
+    public KeyCode Player_Jump_Key = KeyCode.Space;
     public KeyCode Player_Run_Key = KeyCode.LeftShift;
     public float Player_Walk_Speed = 7;
     public float Player_Run_Speed = 10;
@@ -65,6 +70,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         PlayerHUD.UpdateLifes();
     }
 
@@ -72,6 +78,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(Player_Jump_Key))
         {
+            audiosource.PlayOneShot(impact);
             isUpSideDown = !isUpSideDown;
             if (isUpSideDown)
             {
