@@ -34048,6 +34048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 745675025}
   openDistance: 5
+  lightMaxCount: 5
 --- !u!1001 &1772165374
 PrefabInstance:
   m_ObjectHideFlags: 0
