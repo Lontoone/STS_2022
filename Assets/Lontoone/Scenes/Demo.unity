@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.45
+    agentRadius: 0.4
     agentHeight: 1.26
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.14999999
+    cellSize: 0.13333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -2406,7 +2406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2271609579390322849, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
@@ -20561,6 +20561,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3208009581476350986, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
   m_PrefabInstance: {fileID: 840105280}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &773812409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3208009581476350990, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+  m_PrefabInstance: {fileID: 840105280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &787365150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21118,14 +21123,34 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2271609578368335778, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609578368335778, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: moveSpeed
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveTarget
       value: 
       objectReference: {fileID: 1816156465}
     - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: chasingTarget
+      value: 
+      objectReference: {fileID: 773812409}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: moveableBounds
       value: 
       objectReference: {fileID: 2120141962}
+    - target: {fileID: 2271609579390322850, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: constantChasing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322851, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -21180,6 +21205,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322851, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271609579390322854, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
@@ -25205,6 +25234,10 @@ PrefabInstance:
     - target: {fileID: 2365661590611690151, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_Name
       value: RoofEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365661590611690151, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2365661590877306976, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_Size.y
@@ -38597,7 +38630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271609579390322856, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2271609579390322849, guid: 6d11f83f4df5dc84da66967bef49448a, type: 3}
@@ -54144,7 +54177,7 @@ PrefabInstance:
       objectReference: {fileID: 2120141962}
     - target: {fileID: 2365661590913622619, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: constantChasing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2365661590913622693, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_LocalPosition.y
