@@ -19,13 +19,14 @@ public abstract class Enemy : MonoBehaviour
     private bool isReached = true;
     public float reachedCheckRadious = 1f;
     private float initFloorY;
-    Coroutine idleTimeColor;
+    Coroutine idleTimeCoro,walkRestCoro;
     private string stateString = "idle";
     public LayerMask sightBlock;
     //private bool isInSight;
     public float loseSightDistance = 10;
     [SerializeField]
     private Transform chasingTarget;
+    private float walkTime = 0f;
     public virtual void Start()
     {
         initFloorY = transform.position.y;
@@ -43,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
 
             Run();
         }
-        else if (idleTimeColor != null)
+        else if (idleTimeCoro != null)
         {
             //idleing...
         }
@@ -55,6 +56,13 @@ public abstract class Enemy : MonoBehaviour
         {
             //actionController.AddAction(walk);
             Move(); //隨處走
+
+            //行走超時
+            walkTime += Time.deltaTime;
+            if (walkTime > 5) {
+                walkTime = 0;
+                NotSeeTarget();
+            }
         }
     }
 
@@ -111,7 +119,7 @@ public abstract class Enemy : MonoBehaviour
             //Idle ....
             Debug.Log("Idle");
             stateString = "Idle";
-            idleTimeColor = StartCoroutine(WaitForIdle());
+            idleTimeCoro = StartCoroutine(WaitForIdle());
         }
         else
         {
@@ -158,9 +166,14 @@ public abstract class Enemy : MonoBehaviour
     IEnumerator WaitForIdle()
     {
         yield return new WaitForSeconds(5);
-        idleTimeColor = null;
+        idleTimeCoro = null;
     }
 
+    IEnumerator WalkingResetTime() {
+        yield return new WaitForSeconds(5);
+        NotSeeTarget();
+        walkRestCoro = null;
+    }
 
     void OnGUI()
     {
