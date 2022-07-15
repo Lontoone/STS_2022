@@ -162,8 +162,17 @@ public class Player : MonoBehaviour
                 finalvelocity += Vector3.down * 9.8f;
             }
         }
-        if (hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
+        //if (hhRayHit.collider != null) Debug.Log(hhRayHit.collider.gameObject.name);
         r.velocity = finalvelocity;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "BlueNote" || other.gameObject.tag == "RedNote")
+        {
+            Debug.Log(other.gameObject.name);
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnDrawGizmos()

@@ -57,10 +57,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: -2
-  far clip plane: 4
+  far clip plane: 3.5
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.89
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -686,7 +686,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 93a0f5316ec0a428796d16c1eefab88c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -745,7 +745,7 @@ Transform:
   - {fileID: 13434105}
   - {fileID: 1469965365}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3208009581476350984
 Rigidbody:
