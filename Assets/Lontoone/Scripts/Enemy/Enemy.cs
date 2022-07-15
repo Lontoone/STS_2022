@@ -88,7 +88,6 @@ public abstract class Enemy : MonoBehaviour
 
             if ( Physics.Raycast(_ray, out hit, 1000, sightBlock) || constantChasing)
             {
-                Debug.Log("See " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject == sightCollider.collidersInRange[i].gameObject)
                 {
                     SetMoveTarget(_chasingObj.transform.position);
