@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
     [Header("Player States")]
     public static bool isUpSideDown = false;
     public static bool isRunning = false;
-    public static int Lifes = 3;
 
     private void Awake()
     {
@@ -128,8 +127,6 @@ public class Player : MonoBehaviour
             HeadAnimator.SetBool("isMoving", false);
         }
         #endregion
-
-        if (Input.GetKeyDown(KeyCode.K)) Damage();
     }
 
     private void FixedUpdate()
@@ -179,11 +176,5 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position + Vector3.up, hhRayHit.point);
-    }
-
-    public static void Damage()
-    {
-        Lifes--;
-        PlayerHUD.UpdateLifes();
     }
 }
