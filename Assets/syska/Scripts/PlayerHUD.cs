@@ -11,6 +11,6 @@ public class PlayerHUD : MonoBehaviour
 
     private void Awake() { instance = this; SetProgressBar(0); }
 
-    public static void UpdateLifes() { instance.Lifes.text = $"Lifes: {0}/3"; }
+    public static void UpdateLifes() { instance.Lifes.text = $"Lifes: {"1"}/3"; }
     public static void SetProgressBar(float percent) { instance.ProgressBar.fillAmount = percent; }
 }
