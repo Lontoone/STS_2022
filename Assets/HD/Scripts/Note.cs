@@ -9,6 +9,7 @@ public class Note : MonoBehaviour
     public float emissiveIntensity = 10;
     float timer = 0.01f;
     bool addLight = true;
+    public float rotateSpeed = 20.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class Note : MonoBehaviour
                 addLight = true;
             }
         }
+
+       this.gameObject.transform.Rotate( 0.0f, 0.0f, rotateSpeed * Time.deltaTime);
 
         /*
         if(Input.GetKeyDown(KeyCode.Return)){
