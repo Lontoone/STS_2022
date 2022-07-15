@@ -35,11 +35,13 @@ public abstract class Enemy : MonoBehaviour
         navAgent.speed = moveSpeed;
 
         fightCollider.mOnTriggerEnter += CheckKillPleyer;
+        ScoreManager.FEVER_TIME += OnRapid;
     }
 
     private void OnDestroy()
     {
         fightCollider.mOnTriggerEnter -= CheckKillPleyer;
+        ScoreManager.FEVER_TIME -= OnRapid;
     }
     private void Update()
     {
