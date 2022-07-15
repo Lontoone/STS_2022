@@ -180,6 +180,11 @@ public class Player : MonoBehaviour
         r.velocity = finalvelocity;
     }
 
+    public static void Kill()
+    {
+
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
