@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public static Player instance;
     private Rigidbody r;
     private Camera c;
+    public Transform mc;
 
     public Transform USD_Point;
 
@@ -62,13 +63,15 @@ public class Player : MonoBehaviour
             isUpSideDown = !isUpSideDown;
             if (isUpSideDown)
             {
-                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 180), 1);
+                c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 180), 1);
                 c.transform.DOLocalMoveY(0.25f, 1);
+                mc.localEulerAngles = new Vector3(-90, 90, 90);
             }
             else
             {
-                c.transform.DOLocalRotate(new Vector3(c.transform.eulerAngles.x, c.transform.eulerAngles.y, 0), 1);
+                c.transform.DOLocalRotate(new Vector3(c.transform.localEulerAngles.x, c.transform.localEulerAngles.y, 0), 1);
                 c.transform.DOLocalMoveY(1.75f, 1);
+                mc.localEulerAngles = new Vector3(90, 90, 90);
             }
         }
         isRunning = Input.GetKey(Player_Run_Key);
@@ -109,7 +112,7 @@ public class Player : MonoBehaviour
         transform.eulerAngles += Input.GetAxisRaw("Mouse X") * MouseSens * (isUpSideDown == false ? Vector3.up : Vector3.down);
 
         finalvelocity = Vector3.zero;
-        finalvelocity += transform.right * Input.GetAxisRaw("Horizontal");
+        finalvelocity += transform.right * Input.GetAxisRaw("Horizontal") * (isUpSideDown ? -1 : 1);
         finalvelocity += transform.forward * Input.GetAxisRaw("Vertical");
         finalvelocity = Vector3.Normalize(finalvelocity) * (isRunning ? Player_Run_Speed : Player_Walk_Speed);
         #endregion

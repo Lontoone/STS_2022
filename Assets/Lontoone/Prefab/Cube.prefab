@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2271609579390322855}
   - component: {fileID: 2271609579390322850}
   - component: {fileID: 2271609579390322849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2271609579390322856}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.41, y: 0.48, z: 1.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dddd78c49d2f54e846af04bf7779e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  runSpeed: 0
+  moveSpeed: 1
+  runSpeed: 3
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2271609578368335779}
   fightCollider: {fileID: 0}
@@ -260,6 +260,11 @@ MonoBehaviour:
     m_Extent: {x: 5, y: 1, z: 5}
   isReached: 1
   reachedCheckRadious: 1
+  sightBlock:
+    serializedVersion: 2
+    m_Bits: 65
+  loseSightDistance: 10
+  chasingTarget: {fileID: 0}
 --- !u!114 &2271609579390322849
 MonoBehaviour:
   m_ObjectHideFlags: 0
