@@ -47,6 +47,8 @@ public class PlayerHUD : MonoBehaviour
 
     public IEnumerator IShowRemainLife()
     {
+        BlueBarMove.Instance.enabled = false;
+        GreenBarMove.Instance.enabled = false;
         Player.DisablePlayer();
         lb.DOFade(1, 0);
         yield return new WaitForSecondsRealtime(3);
@@ -65,6 +67,8 @@ public class PlayerHUD : MonoBehaviour
         l2.DOFade(0, 0);
         l3.DOFade(0, 0);
         Player.EnablePlayer();
+        BlueBarMove.Instance.enabled = true;
+        GreenBarMove.Instance.enabled = true;
     }
 
     public static void ShowEnding(bool s)

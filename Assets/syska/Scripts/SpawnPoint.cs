@@ -27,6 +27,7 @@ public class SpawnPoint : MonoBehaviour
 
     public static void End()
     {
+        PlaneManager.Instance.isEnd = true;
         instance.g1.SetActive(false);
         instance.g2.SetActive(false);
         instance.g3.SetActive(false);
