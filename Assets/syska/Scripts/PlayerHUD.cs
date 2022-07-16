@@ -14,13 +14,14 @@ public class PlayerHUD : MonoBehaviour
     public Image ProgressBar;
     public Text Lifes;
     public Text NoteCount;
+    public Text percen;
 
     private void Awake() { instance = this; SetProgressBar(0); SetNoteCount(0); }
     private void Start() {
         audiosource = GetComponent<AudioSource>();
     }
     public static void UpdateLifes() { instance.Lifes.text = $"Lifes: {ScoreManager.Life}/3"; }
-    public static void SetProgressBar(float percent) { instance.ProgressBar.fillAmount = percent; }
+    public static void SetProgressBar(float percent) { instance.ProgressBar.fillAmount = percent; instance.percen.text = $"{percent * 100}%"; }
     public static void SetNoteCount(int count) { instance.NoteCount.text = count.ToString(); }
 
     public RawImage b;
