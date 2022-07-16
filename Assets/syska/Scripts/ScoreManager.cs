@@ -13,13 +13,17 @@ public class ScoreManager : MonoBehaviour
     public float Note_ShowTime_Multipy = 1.5f;
 
     public static int Life = 3;
-    public static float Code_Percent = 0f;
-    public static int Note_Count = 0;
+    public static float Code_Percent = 1f;
+    public static int Note_Count = 124;
+    public bool DEBUG_NOTE_FULL;
+    public bool DEBUG_CODE_FULL;
 
     public static event System.Action FEVER_TIME;
 
     private void Start() {
         audiosource = GetComponent<AudioSource>();
+        if (DEBUG_NOTE_FULL) Note_Count = allScore;
+        if (DEBUG_CODE_FULL) Code_Percent = 1f;
     }
 
     private void Noted(bool isBlue)

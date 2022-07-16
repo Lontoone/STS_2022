@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     [Header("Player States")]
     public static bool isUpSideDown = false;
     public static bool isRunning = false;
+    public static bool isFinished { get; private set; } = false;
 
     [Header("DEBUG")]
     public bool DEBUG_RAYCAST_TARGET = false;
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (isFinished) return;
         if (Input.GetKeyDown(Player_Jump_Key))
         {
             audiosource.PlayOneShot(impact);
@@ -192,7 +194,14 @@ public class Player : MonoBehaviour
         //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();
-        if (ScoreManager.Life <= 0) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); /*³o¸Ì¬O¦º¤`*/}
+        if (ScoreManager.Life <= 0) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); /*ï¿½oï¿½Ì¬Oï¿½ï¿½ï¿½`*/}
+    }
+
+    public static void DisablePlayer()
+    {
+        isFinished = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnDrawGizmos()
