@@ -152,7 +152,7 @@ Transform:
   - {fileID: 2271609578368335780}
   - {fileID: 1724464769556052306}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2271609579390322852
 MeshFilter:
@@ -255,8 +255,8 @@ MonoBehaviour:
   audioSource: {fileID: 1216400743235964710}
   runClip: {fileID: 8300000, guid: 0b8f26985f055c141b309557d39f5c3e, type: 3}
   discoverClip: {fileID: 8300000, guid: 913c3afc3a45d5146a1d694298cb8083, type: 3}
-  moveSpeed: 0.5
-  runSpeed: 1.1
+  moveSpeed: 1.1
+  runSpeed: 3
   animator: {fileID: 7064649910344663755}
   moveTarget: {fileID: 0}
   sightCollider: {fileID: 2271609578368335779}
