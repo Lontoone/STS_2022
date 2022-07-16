@@ -6,7 +6,10 @@ public class GreenBarMove : MonoBehaviour
 {
     RectTransform m_RectTransform;
     public static GreenBarMove Instance;
-    public float timer = 3.0f;
+    public float timer = 0.0f;
+    public float changeTime = 5.0f;
+    
+
 
     public bool isMove = false;
 
@@ -22,7 +25,7 @@ public class GreenBarMove : MonoBehaviour
     void Update()
     {   
         timer += Time.deltaTime;
-        if(timer >= 3.0f){
+        if(timer >= changeTime){
             isMove = false;
             m_RectTransform.anchoredPosition = new Vector2(2000.0f, 0.0f);
         }

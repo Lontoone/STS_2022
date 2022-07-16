@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
         if (Note_Count >= allScore){
             FEVER_TIME?.Invoke();
-            DangerMove.Instance.isMove();
+            DangerMove.Instance.isMove = true;
             DangerMove.Instance.timer = 0.0f;
         }
     }
