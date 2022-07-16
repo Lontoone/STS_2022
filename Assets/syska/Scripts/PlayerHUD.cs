@@ -75,4 +75,8 @@ public class PlayerHUD : MonoBehaviour
 
         yield return b1.DOFade(1, 3).WaitForCompletion();
     }
+    public void back()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }

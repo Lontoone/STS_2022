@@ -18545,7 +18545,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 800840398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840105281}
+        m_TargetAssemblyTypeName: PlayerHUD, Assembly-CSharp
+        m_MethodName: back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &800840400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19869,6 +19881,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 800840397}
   m_SourcePrefab: {fileID: 100100000, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+--- !u!114 &840105281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3208009582707194366, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+  m_PrefabInstance: {fileID: 840105280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a8e50060c9f64a4180fab517e19fbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &842353668
 PrefabInstance:
   m_ObjectHideFlags: 0
