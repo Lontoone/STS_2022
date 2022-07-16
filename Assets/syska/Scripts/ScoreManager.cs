@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static readonly  int allScore = 125;
+    public static readonly  int allScore = 124;
     public AudioClip impact;
     AudioSource audiosource;
 
@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
         PlayerHUD.SetNoteCount(allScore - Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
         if (Note_Count >= allScore){
-            Debug.Log(DangerMove.Instance);
+            //Debug.Log(DangerMove.Instance);
             FEVER_TIME?.Invoke();
             DangerMove.Instance.isMove = true;
             DangerMove.Instance.timer = 0.0f;

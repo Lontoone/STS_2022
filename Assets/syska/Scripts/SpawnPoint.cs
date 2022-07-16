@@ -20,7 +20,7 @@ public class SpawnPoint : MonoBehaviour
         {
             Debug.Log(ScoreManager.Code_Percent);
             Debug.Log(ScoreManager.Note_Count);
-            if (ScoreManager.allScore == ScoreManager.Note_Count) End();
+            if (ScoreManager.allScore <= ScoreManager.Note_Count) End();
             Debug.Log(other.gameObject.name);
         }
     }
