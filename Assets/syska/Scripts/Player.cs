@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public float MouseSens = 3.1f;
     private float YLock;
     private bool mLock;
-    public Transform SpawnPoint;
+    public Transform SpawnPointTransform;
 
     [Header("Player Camera")]
     public float Player_Walk_FOV = 60;
@@ -62,6 +62,9 @@ public class Player : MonoBehaviour
         instance = this;
         r = GetComponent<Rigidbody>();
         c = Camera.main;
+        isUpSideDown = false;
+        isRunning = false;
+        isFinished = false;
 
         mLock = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -77,6 +80,15 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (isFinished) return;
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SpawnPoint.End();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ScoreManager.Code_Percent = 200;
+            SpawnPoint.End();
+        }
         if (Input.GetKeyDown(Player_Jump_Key))
         {
             audiosource.PlayOneShot(impact);
@@ -191,7 +203,7 @@ public class Player : MonoBehaviour
 
     public static void Kill()
     {
-        instance.transform.position = instance.SpawnPoint.position;
+        instance.transform.position = instance.SpawnPointTransform.position;
         //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();

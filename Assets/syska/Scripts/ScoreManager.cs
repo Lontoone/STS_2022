@@ -21,6 +21,9 @@ public class ScoreManager : MonoBehaviour
     public static event System.Action FEVER_TIME;
 
     private void Start() {
+        Life = 3;
+        Code_Percent = 0;
+        Note_Count = 0;
         audiosource = GetComponent<AudioSource>();
         if (DEBUG_NOTE_FULL) Note_Count = allScore;
         if (DEBUG_CODE_FULL) Code_Percent = 1f;

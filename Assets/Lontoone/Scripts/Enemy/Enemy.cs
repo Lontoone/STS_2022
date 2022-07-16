@@ -207,7 +207,7 @@ public abstract class Enemy : MonoBehaviour
 
     IEnumerator WaitForIdle()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2.5f);
         idleTimeCoro = null;
     }
 

@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 2271609579390322854}
   - component: {fileID: 2271609579390322855}
   - component: {fileID: 2271609579390322850}
-  - component: {fileID: 2271609579390322849}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -152,7 +151,7 @@ Transform:
   - {fileID: 2271609578368335780}
   - {fileID: 1724464769556052306}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2271609579390322852
 MeshFilter:
@@ -226,7 +225,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2271609579390322856}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -270,34 +269,6 @@ MonoBehaviour:
     m_Bits: 65
   loseSightDistance: 10
   chasingTarget: {fileID: 0}
---- !u!114 &2271609579390322849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2271609579390322856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a294f05138c3844b7f8d8c465d7695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxActionCount: 5
-  actionQueue: []
-  currentAction:
-    description: 
-    is_in_gap_time_lock: 0
-    gap_time: 0.5
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-    priority: 0
-    force: 0
-    duration: 0
-    isLoop: 1
-    timeOut: 0
-    time_out_counter: 0
-  allowDuplicate: 1
 --- !u!1 &6445229976042010998
 GameObject:
   m_ObjectHideFlags: 0
