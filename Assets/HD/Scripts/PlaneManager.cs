@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaneManager : MonoBehaviour
 {
+    public bool isEnd = false;
     public static PlaneManager Instance;
     //生成場地的長寬
     public float length = 10.0f;
@@ -28,6 +29,7 @@ public class PlaneManager : MonoBehaviour
     //判斷是藍色ShowTime還是紅色ShowTime
     float timer2;
     private void Awake() {
+        isEnd = false;
         Instance = this;
     }
     // Start is called before the first frame update
@@ -54,11 +56,11 @@ public class PlaneManager : MonoBehaviour
 
         if(timer >= periodTime){
             isShowTime = !isShowTime;
-            if(isBlueTurn && isShowTime){
+            if(isBlueTurn && isShowTime && !isEnd){
                 BlueBarMove.Instance.isMove = true;
                 BlueBarMove.Instance.timer = 0.0f;
             }
-            if(!isBlueTurn && isShowTime){
+            if(!isBlueTurn && isShowTime && !isEnd){
                 GreenBarMove.Instance.isMove = true;
                 GreenBarMove.Instance.timer = 0.0f;
             }
