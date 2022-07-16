@@ -195,7 +195,13 @@ public class Player : MonoBehaviour
         //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();
-        if (ScoreManager.Life <= 0) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); /*�o�̬O���`*/}
+        if (ScoreManager.Life <= 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0); /*�o�̬O���`*/
+        }else
+        {
+            PlayerHUD.ShowRemainLife();
+        }
     }
 
     public static void DisablePlayer()
@@ -205,6 +211,13 @@ public class Player : MonoBehaviour
         instance.r.velocity = Vector3.zero;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public static void EnablePlayer()
+    {
+        isFinished = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void OnDrawGizmos()
