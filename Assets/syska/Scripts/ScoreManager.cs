@@ -54,7 +54,7 @@ public class ScoreManager : MonoBehaviour
         {
             Noted(other.gameObject.tag == "BlueNote");
             audiosource.PlayOneShot(impact);
-            allScore -= 1 ;
+            //allScore -= 1 ;
             //Debug.Log("吃到音符");
             Destroy(other.gameObject);
         }
