@@ -37,4 +37,10 @@ public class ChangeScene : MonoBehaviour
             Application.Quit();
         }
     }
+
+    public GameObject TeamObject;
+    public void SpawnTeam()
+    {
+        Instantiate(TeamObject, transform);
+    }
 }
