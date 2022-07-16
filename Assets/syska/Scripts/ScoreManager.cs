@@ -20,6 +20,13 @@ public class ScoreManager : MonoBehaviour
 
     public static event System.Action FEVER_TIME;
 
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.O)){
+            Note_Count = 125;
+            Noted(true);
+        }
+    }
+
     private void Start() {
         Life = 3;
         Code_Percent = 0;
@@ -45,6 +52,7 @@ public class ScoreManager : MonoBehaviour
         PlayerHUD.SetNoteCount(allScore - Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
         if (Note_Count >= allScore){
+            Debug.Log(DangerMove.Instance);
             FEVER_TIME?.Invoke();
             DangerMove.Instance.isMove = true;
             DangerMove.Instance.timer = 0.0f;

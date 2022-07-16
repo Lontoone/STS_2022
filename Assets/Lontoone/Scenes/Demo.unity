@@ -23201,7 +23201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 947398616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa7b599ac1124c439db348b54d71f0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 672cc90e1b05e174b802575e1c4eaa73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 7
@@ -35697,6 +35697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329335fe6778683488a2d379c9d664cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnd: 0
   length: 15
   unitLength: 1.5
   rotateAngle: 180
