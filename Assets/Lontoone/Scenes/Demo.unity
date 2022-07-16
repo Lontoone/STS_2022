@@ -19886,14 +19886,6 @@ PrefabInstance:
       propertyPath: impact2
       value: 
       objectReference: {fileID: 8300000, guid: c2891030e3f8cc64b9262f92e7631f1f, type: 3}
-    - target: {fileID: 808939218, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
-      propertyPath: DEBUG_CODE_FULL
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 808939218, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
-      propertyPath: DEBUG_NOTE_FULL
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 878577585, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_IsActive
       value: 0
