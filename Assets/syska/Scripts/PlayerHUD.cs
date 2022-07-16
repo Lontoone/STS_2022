@@ -34,6 +34,37 @@ public class PlayerHUD : MonoBehaviour
     public RawImage s5;
     public RawImage s6;
     public Image b1;
+    public RawImage lb;
+    public RawImage l1;
+    public RawImage l2;
+    public RawImage l3;
+
+    public static void ShowRemainLife()
+    {
+        instance.StartCoroutine(instance.IShowRemainLife());
+    }
+
+    public IEnumerator IShowRemainLife()
+    {
+        Player.DisablePlayer();
+        lb.DOFade(1, 0);
+        yield return new WaitForSecondsRealtime(3);
+        if (ScoreManager.Life == 2)
+        {
+            l2.DOFade(1, 0);
+            l3.DOFade(1, 0);
+        }
+        else
+        {
+            l1.DOFade(1, 0);
+        }
+        yield return new WaitForSecondsRealtime(3);
+        lb.DOFade(0, 0);
+        l1.DOFade(0, 0);
+        l2.DOFade(0, 0);
+        l3.DOFade(0, 0);
+        Player.EnablePlayer();
+    }
 
 private void Update() {
     if(Input.GetKeyDown(KeyCode.A)){
