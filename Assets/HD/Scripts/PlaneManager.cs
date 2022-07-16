@@ -54,6 +54,14 @@ public class PlaneManager : MonoBehaviour
 
         if(timer >= periodTime){
             isShowTime = !isShowTime;
+            if(isBlueTurn){
+                BlueBarMove.Instance.isMove = true;
+                BlueBarMove.Instance.timer = 0.0f;
+            }
+            if(!isBlueTurn){
+                GreenBarMove.Instance.isMove = true;
+                GreenBarMove.Instance.timer = 0.0f;
+            }
             timer = 0;
         }
 
