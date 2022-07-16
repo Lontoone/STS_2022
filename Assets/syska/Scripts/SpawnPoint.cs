@@ -12,6 +12,8 @@ public class SpawnPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log(ScoreManager.allScore);
+            Debug.Log(ScoreManager.Note_Count);
             if (ScoreManager.allScore == ScoreManager.Note_Count)
             {
                 g1.SetActive(false);

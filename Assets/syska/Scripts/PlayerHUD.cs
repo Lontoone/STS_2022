@@ -66,15 +66,10 @@ public class PlayerHUD : MonoBehaviour
         Player.EnablePlayer();
     }
 
-private void Update() {
-    if(Input.GetKeyDown(KeyCode.A)){
-        audiosource.PlayOneShot(impact);
-    }
-}
-
     public static void ShowEnding(bool s)
     {              
         instance.audiosource.PlayOneShot(instance.impact);
+        Debug.Log("播放end");
         instance.se = s;        
         instance.StartCoroutine(instance.IShowEnding());
     }
