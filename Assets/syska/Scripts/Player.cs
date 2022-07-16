@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isFinished) return;
         if (isUpSideDown)
         {
             if (Physics.Raycast(USD_Point.position , transform.up, out hhRayHit, Player_RayCast_HoverHeight + Player_RayCast_Distance, RayIgnore))
@@ -200,6 +201,8 @@ public class Player : MonoBehaviour
     public static void DisablePlayer()
     {
         isFinished = true;
+        instance.finalvelocity = Vector3.zero;
+        instance.r.velocity = Vector3.zero;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

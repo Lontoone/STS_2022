@@ -12,12 +12,12 @@ public class SpawnPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            g1.SetActive(false);
-            g2.SetActive(false);
-            g3.SetActive(false);
-            Player.DisablePlayer();
             if (ScoreManager.allScore == ScoreManager.Note_Count)
             {
+                g1.SetActive(false);
+                g2.SetActive(false);
+                g3.SetActive(false);
+                Player.DisablePlayer();
                 PlayerHUD.ShowEnding(ScoreManager.Code_Percent >= 1);
             }
             Debug.Log(other.gameObject.name);

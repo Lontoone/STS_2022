@@ -21,6 +21,13 @@ public class PlayerHUD : MonoBehaviour
     bool se = false;
     public RawImage e1;
     public RawImage e2;
+    public RawImage s1;
+    public RawImage s2;
+    public RawImage s3;
+    public RawImage s4;
+    public RawImage s5;
+    public RawImage s6;
+    public Image b1;
 
     public static void ShowEnding(bool s)
     {
@@ -33,12 +40,39 @@ public class PlayerHUD : MonoBehaviour
         yield return instance.b.DOFade(1, 0.5f).WaitForCompletion();
         yield return new WaitForSecondsRealtime(3);
         yield return instance.e1.DOFade(1, 0.5f).WaitForCompletion();
+        yield return new WaitForSecondsRealtime(1);
+        s1.DOFade(1, 0);
+        yield return new WaitForSecondsRealtime(3);
+        s1.DOFade(0, 0);
+        yield return new WaitForSecondsRealtime(1);
+        s2.DOFade(1, 0);
+        yield return new WaitForSecondsRealtime(3);
+        s2.DOFade(0, 0);
+        yield return new WaitForSecondsRealtime(1);
+        s3.DOFade(1, 0);
+        yield return new WaitForSecondsRealtime(3);
+        s3.DOFade(0, 0);
         if (se)
         {
-            yield return new WaitForSecondsRealtime(7);
+            yield return new WaitForSecondsRealtime(3);
             yield return instance.e1.DOFade(0, 0.5f).WaitForCompletion();
             yield return new WaitForSecondsRealtime(3);
             instance.e2.DOFade(1, 0.5f);
+            yield return new WaitForSecondsRealtime(1);
+            s4.DOFade(1, 0);
+            yield return new WaitForSecondsRealtime(3);
+            s4.DOFade(0, 0);
+            yield return new WaitForSecondsRealtime(1);
+            s5.DOFade(1, 0);
+            yield return new WaitForSecondsRealtime(3);
+            s5.DOFade(0, 0);
+            yield return new WaitForSecondsRealtime(1);
+            s6.DOFade(1, 0);
+            yield return new WaitForSecondsRealtime(3);
+            s6.DOFade(0, 0);
+            yield return new WaitForSecondsRealtime(1);
         }
+
+        yield return b1.DOFade(1, 3).WaitForCompletion();
     }
 }
