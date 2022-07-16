@@ -41,7 +41,11 @@ public class ScoreManager : MonoBehaviour
         PlayerHUD.UpdateLifes();
         PlayerHUD.SetNoteCount(Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
-        if (Note_Count >= allScore) FEVER_TIME?.Invoke();
+        if (Note_Count >= allScore){
+            FEVER_TIME?.Invoke();
+            DangerMove.Instance.isMove();
+            DangerMove.Instance.timer = 0.0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
