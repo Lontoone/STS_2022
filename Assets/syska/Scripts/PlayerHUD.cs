@@ -3,16 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+[RequireComponent(typeof(AudioSource))]
 
 public class PlayerHUD : MonoBehaviour
 {
+    public AudioClip impact;
+    AudioSource audiosource;
+
     public static PlayerHUD instance;
     public Image ProgressBar;
     public Text Lifes;
     public Text NoteCount;
 
     private void Awake() { instance = this; SetProgressBar(0); SetNoteCount(0); }
-
+    private void Start() {
+        audiosource = GetComponent<AudioSource>();
+    }
     public static void UpdateLifes() { instance.Lifes.text = $"Lifes: {ScoreManager.Life}/3"; }
     public static void SetProgressBar(float percent) { instance.ProgressBar.fillAmount = percent; }
     public static void SetNoteCount(int count) { instance.NoteCount.text = count.ToString(); }
@@ -29,9 +35,16 @@ public class PlayerHUD : MonoBehaviour
     public RawImage s6;
     public Image b1;
 
+private void Update() {
+    if(Input.GetKeyDown(KeyCode.A)){
+        audiosource.PlayOneShot(impact);
+    }
+}
+
     public static void ShowEnding(bool s)
-    {
-        instance.se = s;
+    {              
+        instance.audiosource.PlayOneShot(instance.impact);
+        instance.se = s;        
         instance.StartCoroutine(instance.IShowEnding());
     }
 
