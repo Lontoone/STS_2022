@@ -38,6 +38,15 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
+    public AudioSource ass;
+    public Story s;
+    public void StartStory()
+    {
+        s.StartS();
+        Destroy(ass);
+        Destroy(this);
+    }
+
     public GameObject TeamObject;
     public void SpawnTeam()
     {
