@@ -22677,6 +22677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoofEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2365661590611690151, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2365661590877306976, guid: dc8506af7bc165541aec6613e52d8de2, type: 3}
       propertyPath: m_Size.y
       value: 0.21

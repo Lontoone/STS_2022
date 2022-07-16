@@ -195,6 +195,8 @@ public class Player : MonoBehaviour
         //if (isUpSideDown) 
         ScoreManager.Life--;
         PlayerHUD.UpdateLifes();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         if (ScoreManager.Life <= 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0); /*�o�̬O���`*/

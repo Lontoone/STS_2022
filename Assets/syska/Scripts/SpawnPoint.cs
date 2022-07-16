@@ -12,7 +12,7 @@ public class SpawnPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(ScoreManager.allScore);
+            Debug.Log(ScoreManager.Code_Percent);
             Debug.Log(ScoreManager.Note_Count);
             if (ScoreManager.allScore == ScoreManager.Note_Count)
             {
@@ -20,7 +20,7 @@ public class SpawnPoint : MonoBehaviour
                 g2.SetActive(false);
                 g3.SetActive(false);
                 Player.DisablePlayer();
-                PlayerHUD.ShowEnding(ScoreManager.Code_Percent >= 1);
+                PlayerHUD.ShowEnding(ScoreManager.Code_Percent >= 100);
             }
             Debug.Log(other.gameObject.name);
         }

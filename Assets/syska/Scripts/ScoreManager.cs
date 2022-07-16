@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int allScore = 124;
+    public static readonly  int allScore = 124;
     public AudioClip impact;
     AudioSource audiosource;
 
@@ -39,7 +39,7 @@ public class ScoreManager : MonoBehaviour
 
         Note_Count++;
         PlayerHUD.UpdateLifes();
-        PlayerHUD.SetNoteCount(Note_Count);
+        PlayerHUD.SetNoteCount(allScore - Note_Count);
         PlayerHUD.SetProgressBar(Code_Percent / 100f);
         if (Note_Count >= allScore) FEVER_TIME?.Invoke();
     }
