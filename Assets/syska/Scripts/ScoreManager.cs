@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static readonly  int allScore = 124;
+    public static readonly  int allScore = 125;
     public AudioClip impact;
     AudioSource audiosource;
 
