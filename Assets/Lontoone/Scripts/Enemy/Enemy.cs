@@ -162,6 +162,8 @@ public abstract class Enemy : MonoBehaviour
     public virtual void SetMoveTarget(Vector3 _pos)
     {
         moveTarget.position = _pos;
+        navAgent.ResetPath();
+        navAgent.SetDestination(_pos);
     }
 
     private void CheckKillPleyer(GameObject colliderEntered)
