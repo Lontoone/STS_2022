@@ -19898,6 +19898,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 1337
       objectReference: {fileID: 0}
+    - target: {fileID: 3208009581075050934, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: SpawnPoint
       value: 
