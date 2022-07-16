@@ -20302,6 +20302,10 @@ PrefabInstance:
       propertyPath: SpawnPoint
       value: 
       objectReference: {fileID: 499987894}
+    - target: {fileID: 3208009581476350985, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
+      propertyPath: SpawnPointTransform
+      value: 
+      objectReference: {fileID: 499987894}
     - target: {fileID: 3208009581476350986, guid: 1b3576152ab2f4dee907eb09bd4d2933, type: 3}
       propertyPath: m_Name
       value: Player
@@ -23201,6 +23205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 7
+  changeTime: 5
   isMove: 0
 --- !u!1001 &950124764
 PrefabInstance:
@@ -33011,6 +33016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 7
+  changeTime: 5
   isMove: 0
 --- !u!1001 &1513350845
 PrefabInstance:
@@ -48466,6 +48472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 7
+  changeTime: 5
   isMove: 0
 --- !u!1001 &1922161484
 PrefabInstance:
