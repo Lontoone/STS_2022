@@ -13,8 +13,8 @@ public class ScoreManager : MonoBehaviour
     public float Note_ShowTime_Multipy = 1.5f;
 
     public static int Life = 3;
-    public static float Code_Percent = 1f;
-    public static int Note_Count = 124;
+    public static float Code_Percent = 0f;
+    public static int Note_Count = 0;
     public bool DEBUG_NOTE_FULL;
     public bool DEBUG_CODE_FULL;
 
