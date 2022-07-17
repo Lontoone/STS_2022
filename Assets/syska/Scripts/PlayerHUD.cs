@@ -86,33 +86,33 @@ public class PlayerHUD : MonoBehaviour
         yield return instance.e1.DOFade(1, 0.5f).WaitForCompletion();
         yield return new WaitForSecondsRealtime(1);
         s1.DOFade(1, 0);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(5);
         s1.DOFade(0, 0);
         yield return new WaitForSecondsRealtime(1);
         s2.DOFade(1, 0);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(5);
         s2.DOFade(0, 0);
         yield return new WaitForSecondsRealtime(1);
         s3.DOFade(1, 0);
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(5);
         s3.DOFade(0, 0);
         if (se)
         {
             yield return new WaitForSecondsRealtime(3);
             yield return instance.e1.DOFade(0, 0.5f).WaitForCompletion();
             yield return new WaitForSecondsRealtime(3);
-            instance.e2.DOFade(1, 0.5f);
+            yield return instance.e2.DOFade(1, 0.5f).WaitForCompletion();
             yield return new WaitForSecondsRealtime(1);
             s4.DOFade(1, 0);
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(5);
             s4.DOFade(0, 0);
             yield return new WaitForSecondsRealtime(1);
             s5.DOFade(1, 0);
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(5);
             s5.DOFade(0, 0);
             yield return new WaitForSecondsRealtime(1);
             s6.DOFade(1, 0);
-            yield return new WaitForSecondsRealtime(3);
+            yield return new WaitForSecondsRealtime(5);
             s6.DOFade(0, 0);
             yield return new WaitForSecondsRealtime(1);
         }
